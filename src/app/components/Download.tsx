@@ -4,7 +4,7 @@ import React from "react";
 const Download = () => {
   return (
     <section id="downloads" className="py-20 xl:py-24 2xl:py-32">
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="mx-auto px-4 md:px-12 relative">
         <header className="w-[755px] max-w-full mb-14 mx-auto">
           <div className="text-center">
             <p className="text-[#A7A6A6] font-medium text-base lg:text-[18px] 2xl:text-[20px] leading-[25px] mb-6 flex justify-center">

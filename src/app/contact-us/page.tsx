@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 
 import Button from "../components/Button";
-import { Discord, Instagram, Twitter } from "../SVG";
+import { Facebook, Instagram, Twitter } from "../SVG";
 
 export const metadata: Metadata = {
   title: "Contact Us | Digital Marketing Agency Phoenix",
@@ -59,7 +59,7 @@ const ContactUs = async () => {
         </div>
       </div>
       <div className="py-16 md:py-18 lg:py-20 mb-0">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="mx-auto px-4 md:px-12 relative">
           <div className="flex flex-wrap lg:flex-nowrap gap-10 lg:gap-12 shadow-blog rounded-[10px] p-5">
             <div className="w-full lg:w-5/12">
               <div
@@ -123,7 +123,7 @@ const ContactUs = async () => {
                     href="#"
                     className="group bg-primary h-[30px] w-[30px] rounded-full flex items-center justify-center text-white hover:bg-white hover:text-theme"
                   >
-                    <Discord />
+                    <Facebook />
                   </a>
                 </div>
                 <div className="rounded-full h-[137px] w-[137px] bg-[#FFF9F921] absolute bottom-[71px] right-[70px]"></div>

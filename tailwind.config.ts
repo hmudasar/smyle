@@ -12,8 +12,8 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         border: "#EBEAED",
-        primary: "#3F3115",
-        theme: "#F7E36F",
+        primary: "#151515",
+        theme: "#FFE566",
         "theme-2": "#FFC727",
         "blue-grey": "#0F172A",
       },
@@ -22,7 +22,7 @@ export default {
         "gradient-light": "var(--gradientLight)",
       },
       fontFamily: {
-        space: ["var(--font-baloo-2)", "sans-serif"],
+        spring: ["var(--fontspring)"],
       },
       boxShadow: {
         custom: "0px 1px 2px 0px rgba(16, 24, 40, 0.05)",

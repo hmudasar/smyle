@@ -12,7 +12,7 @@ import Download from "./components/Download";
 
 export default function HomeClient() {
   return (
-    <div className="bg-white" id="home">
+    <div id="home">
       <Banner />
       <AboutUs />
       <HowItWorks />

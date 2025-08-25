@@ -1,24 +1,32 @@
-@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Fontspring Recoleta Alt";
+  src: url("/fonts/Fontspring-recoletaalt-medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #000;
-  --gradientBackground: linear-gradient(180deg, #40254f 0%, #1a0e24 100%);
+  --background: #000;
+  --foreground: #fffcf0;
+  --gradientBackground: linear-gradient(0deg, #fffcf0 1.85%, #ffe566 46.02%);
   --gradientLight: linear-gradient(
     180deg,
     rgba(215, 162, 244, 0.292) 0%,
     rgba(238, 208, 255, 0.1898) 48.5%,
     rgba(249, 249, 249, 0.73) 100%
   );
+  --fontspring: "Fontspring Recoleta Alt", serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #000;
-    --foreground: #ededed;
+    --background: #fffcf0;
+    --foreground: #000;
   }
 }
 @keyframes slideIn {
@@ -35,7 +43,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: "Baloo 2", sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 .text-truncate-2 {
   display: -webkit-box;

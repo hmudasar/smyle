@@ -67,7 +67,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
       </head>
-      <body className={`bg-white text-black`}>
+      <body className={`bg-background text-black`}>
         <AuthProvider>
           {/* Header with Suspense boundary */}
           <Suspense
@@ -78,7 +78,7 @@ export default function RootLayout({
             <Header />
           </Suspense>
 
-          <main className="pt-[81px] md:pt-[94px]">
+          <main>
             {/* Main content with Suspense boundary */}
             <Suspense
               fallback={

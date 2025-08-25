@@ -22,7 +22,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
         className="py-6 min-h-[334px] flex items-center relative animate-pulse "
       >
         <div className="bg-gray-200 absolute top-0 left-0 w-full h-full rounded-lg" />
-        <div className="container mx-auto px-4 md:px-6 relative">
+        <div className="mx-auto px-4 md:px-12 relative">
           <div className="h-[45px] bg-gray-300 rounded-[7px] w-[200px] mb-4" />
           <div className="h-[42px] bg-gray-300 rounded w-3/4 mb-4" />
           <div className="flex items-center gap-4">

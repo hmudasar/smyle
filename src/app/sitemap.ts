@@ -27,10 +27,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     // Fetch blog posts from API with related articles
     const response = await axios.get<{ data: Blog[] }>(
-      `${apiURL}/articles?populate=related_articles`,
-      {
-        headers: { Authorization: `Bearer ${authToken}` },
-      }
+      `${apiURL}/articles?populate=related_articles`
     );
 
     const blogs: Blog[] = response.data.data || [];

@@ -5,13 +5,20 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import { usePathname } from "next/navigation";
+import { Facebook, Instagram, LinkedIn, SmyleIcon, Twitter } from "../SVG";
 
 const headerMenu = [
   { name: "Home", path: "/" },
   { name: "About Us", path: "/about-us" },
-  { name: "Smile Bizz", path: "/smile-bizz" },
+  { name: "Smylo", path: "/smylo" },
   { name: "Blogs", path: "/blogs" },
-  { name: "Help Center", path: "/contact-us" },
+  { name: "Contact", path: "/contact-us" },
+];
+const socialLinks = [
+  { title: "Facebook", icon: <Facebook />, path: "" },
+  { title: "Twitter ", icon: <Twitter />, path: "" },
+  { title: "Instagram", icon: <Instagram />, path: "" },
+  { title: "LinkedIn", icon: <LinkedIn />, path: "" },
 ];
 
 const Header = () => {
@@ -51,23 +58,19 @@ const Header = () => {
         className={`fixed w-full top-0 left-0 z-50 transition-all duration-300`}
       >
         <div
-          className={`bg-white transition-all duration-300 ${
+          className={`bg-white/10 backdrop-blur-[14px] transition-all duration-300 ${
             isScrolled ? "bg-white shadow-custom-hover py-1 lg:py-2" : "py-3"
           }`}
         >
-          <div className="container mx-auto px-4 md:px-6">
+          <div className="mx-auto px-4 md:px-12 relative">
             <div className="flex justify-between items-center">
               <div className="logo">
                 <Link href="/" prefetch>
-                  <Image
-                    src="/images/smyl-logo.png"
-                    height={70}
-                    width={99}
-                    alt="logo"
+                  <SmyleIcon
                     className={` ransition-all duration-300 h-auto ${
                       isScrolled
-                        ? "h-auto w-[70px] md:w-[80px]"
-                        : "h-auto w-[80px] md:w-[99px]"
+                        ? "h-auto w-[50px] md:w-[75px]"
+                        : "h-auto w-[60px] md:w-[85px]"
                     }`}
                   />
                 </Link>
@@ -86,7 +89,7 @@ const Header = () => {
                             href={item.path}
                             className={`${
                               isActive
-                                ? "text-[20px] font-semibold text-theme"
+                                ? "text-[20px] font-semibold"
                                 : "text-primary text-semibold font-[400]"
                             } transition-all duration-300 hover:text-theme"
                       `}
@@ -101,11 +104,17 @@ const Header = () => {
                 </nav>
               </div>
               <div className="flex items-center gap-4">
-                <Button
-                  varient="primary"
-                  text="Get Started"
-                  path="/contact-us"
-                />
+                <div className="flex gap-5 items-center">
+                  {socialLinks.map((link, index) => (
+                    <a
+                      href={link.path}
+                      aria-label={`Social link for ${link.title}`}
+                      key={index}
+                    >
+                      {link.icon}
+                    </a>
+                  ))}
+                </div>
                 <button
                   className="h-[30px] w-[35px] flex-none relative z-[999] lg:hidden"
                   onClick={handleShowMenu}

@@ -5,11 +5,7 @@ import { apiURL, authToken } from "../utils/constent";
 
 export default async function BlogListServer() {
   try {
-    const response = await axios.get(`${apiURL}/articles?populate=*`, {
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-    });
+    const response = await axios.get(`${apiURL}/articles?populate=*`);
 
     const posts: BlogPost[] = response.data.data || [];
 

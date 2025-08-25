@@ -45,7 +45,7 @@ const Testimonials = () => {
 
   return (
     <section id="testimonials" className="py-10 2xl:py-16 lg:pb-0">
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="mx-auto px-4 md:px-12 relative">
         <header className="w-[800px] max-w-full mb-10 mx-auto">
           <div className="text-center">
             <p className="text-[#A7A6A6] font-medium text-base lg:text-[18px] 2xl:text-[20px] leading-[25px] mb-6 flex justify-center">

@@ -96,7 +96,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
     <Suspense fallback={<BlogLoading />}>
       <div className="services">
         <div className="pt-24 lg:py-32">
-          <div className="container mx-auto px-4 md:px-6">
+          <div className="mx-auto px-4 md:px-12 relative">
             <div className="shadow-blog p-6 md:p-10 lg:p-12">
               <div className="rounded-[20px]">
                 {blog.cover?.url && (
@@ -147,7 +147,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
           </div>
         </div>
 
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="mx-auto px-4 md:px-12 relative">
           <div className="grid md:grid-cols-2 gap-24">
             <div>
               {prevBlog && (

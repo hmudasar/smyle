@@ -13,11 +13,7 @@ const Blogs = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get(`${apiURL}/articles?populate=*`, {
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-          },
-        });
+        const response = await axios.get(`${apiURL}/articles?populate=*`);
         setBlogs(response.data.data);
       } catch (error) {
         console.error("Error fetching blogs:", error);
@@ -33,7 +29,7 @@ const Blogs = () => {
       className="py-14"
       aria-label="Expert Insights & Growth Strategies"
     >
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="mx-auto px-4 md:px-12 relative">
         <header className="w-[800px] max-w-full mb-0 mx-auto">
           <div className="text-center">
             <p className="text-[#A7A6A6] font-medium text-base lg:text-[18px] 2xl:text-[20px] leading-[25px] mb-6 flex justify-center">

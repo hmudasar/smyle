@@ -5,7 +5,7 @@ export default function Loading() {
     <div className="services">
       <div>
         <div className="py-16">
-          <div className="container mx-auto px-4 md:px-6">
+          <div className="mx-auto px-4 md:px-12 relative">
             <div className="border border-[#E3E3E3] rounded-[10px] p-4 animate-pulse">
               {/* Main Image Skeleton */}
               <div className="w-full h-[300px] md:[400px] lg:h-[500px] xl:h-[589px] rounded-[10px] overflow-hidden mb-6 bg-gray-200" />
@@ -33,7 +33,7 @@ export default function Loading() {
 
             {/* Related Blogs Skeleton */}
             <div className="py-16 md:py-18 lg:py-20">
-              <div className="container mx-auto px-4 md:px-6">
+              <div className="mx-auto px-4 md:px-12 relative">
                 <div className="mb-16">
                   <div className="h-10 bg-gray-200 rounded w-1/4 mb-4" />
                 </div>
