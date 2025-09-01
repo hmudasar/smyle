@@ -16,6 +16,8 @@ export default {
         theme: "#FFE566",
         "theme-2": "#FFC727",
         "blue-grey": "#0F172A",
+        secondary: "#818181",
+        button: "#171717",
       },
       backgroundImage: {
         gradient: "var(--gradientBackground)",
@@ -23,6 +25,7 @@ export default {
       },
       fontFamily: {
         spring: ["var(--fontspring)"],
+        figtree: ["Figtree", "sans-serif"],
       },
       boxShadow: {
         custom: "0px 1px 2px 0px rgba(16, 24, 40, 0.05)",

@@ -1,19 +1,19 @@
 "use client";
 
 import React from "react";
-import { SearchIcon } from "../SVG";
-import Image from "next/image";
+import { ChevronRight } from "../SVG";
+import Link from "next/link";
 
 interface BreadcrumbProps {
   loading?: boolean;
-  searchQuery?: string;
-  onSearchChange?: (value: string) => void;
+  heading: string;
+  pageName: string;
 }
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({
   loading = false,
-  searchQuery = "",
-  onSearchChange = () => {},
+  heading,
+  pageName,
 }) => {
   if (loading) {
     return (
@@ -35,45 +35,25 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
   }
 
   return (
-    <nav
-      className="pt-48 pb-4 -mt-[100px] mb-20"
-      style={{
-        background: "linear-gradient(180deg, #FF6B6B 0%, #FFD93D 100%)",
-      }}
-    >
-      <div className="container px-6 mx-auto">
-        <div className="text-center relative">
-          <div className="max-w-[714px] mx-auto mb-6">
-            <div className="relative">
-              <div className="h-[37px] w-[37px] rounded-full border border-[#F03561] absolute left-2 lg:left-20 -top-3"></div>
-              <h1 className="text-[46px] lg:text-[70px] font-bold leading-[80px] inline-block relative tracking-[2px]">
-                <Image
-                  height={31}
-                  width={32}
-                  alt="three-line"
-                  src="/images/three-line.png"
-                  className="absolute -left-6 -top-3"
-                />
-                Blogs
-              </h1>
-              <div className="h-[37px] w-[37px] rounded-full border border-[#F03561] absolute right-1 lg:right-12 bottom-2"></div>
-            </div>
-            <div className="bg-white shadow-search rounded-[10px] flex items-center px-4 md:px-6 lg:px-8 lg:py-3 mt-6 -mb-20">
-              <input
-                type="text"
-                className="bg-transparent w-full h-[60px] focus:outline-none placeholder:text-[#170F49] text-primary text-base md:text-[20px] lg:text-[22px] font-medium leading-[28px]"
-                placeholder="Search"
-                value={searchQuery}
-                onChange={(e) => onSearchChange(e.target.value)}
-              />
-              <button>
-                <SearchIcon />
-              </button>
-            </div>
-          </div>
-        </div>
+    <div className="banner bg-gradient pt-48 pb-52 xl:pt-52 xl:pb-52 relative">
+      <div className="mx-auto px-4 md:px-12 relative">
+        <ul className="flex justify-center items-center gap-2">
+          <li className="text-base text-[#151515] font-normal tracking-[0.48px]">
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <ChevronRight />
+          </li>
+          <li className="text-base text-[#151515] font-normal tracking-[0.48px]">
+            <Link href={`/${pageName.toLowerCase()}`}>{pageName}</Link>
+          </li>
+        </ul>
+
+        <h1 className="font-figtree text-center  text-[40px] lg:text-[48px] xl:text-[56px] 2xl:text-[62px] text-[#151515] tracking-[0.62px] font-semibold">
+          {heading}
+        </h1>
       </div>
-    </nav>
+    </div>
   );
 };
 

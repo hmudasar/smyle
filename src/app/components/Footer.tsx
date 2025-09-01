@@ -1,37 +1,194 @@
 import React from "react";
 import Button from "./Button";
 import Image from "next/image";
+import Link from "next/link";
+import {
+  AppleIcon,
+  EmailIcon,
+  Facebook,
+  Instagram,
+  LinkedIn,
+  LocationIcon,
+  PhoneIcon,
+  PlayStoreIcon,
+  SmyleIcon,
+  Twitter,
+} from "../SVG";
 
 const Footer = () => {
   return (
-    <footer className="mb-6 md:mb-16 2xl:mb-32 mt-24 xl:mt-40">
-      <div className="mx-auto px-4 md:px-12 relative">
-        <div className="bg-[#FF6B6B] rounded-[24px] relative">
-          <div className="flex flex flex-wrap-reverse lg:flex-nowrap">
-            <div className="w-full lg:w-1/2 text-center lg:text-left px-5 py-[50px] md:px-[60px] lg:py-[80px] xl:py-[90px] 2xl:px-[95px] 2xl:py-[100px]">
-              <h2 className="text-[24px] md:text-[28px] lg:text-[34px] 2xl:text-[60px] font-semibold leading-[1.3] 2xl:leading-[1.4] text-white tracking-[0.2px] mb-3">
-                Your Partner’s Smile is One Tap Away
+    <footer className="rounded-tl-[48px] rounded-tr-[48px] pt-[56px] bg-theme">
+      <div className="mx-auto px-4 md:px-12 relative pb-12 lg:block hidden">
+        <div className="flex justify-center mb-6">
+          <Link href="/" prefetch>
+            <SmyleIcon className="transition-all duration-300 h-auto w-[197px] h-[139px]" />
+          </Link>
+        </div>
+        <div className="text-center mb-6">
+          <h2 className="text-[40px] font-semibold text-primary">
+            Your Everyday Relationship Coach
+          </h2>
+        </div>
+        <div className="flex justify-center gap-12">
+          <div className="flex gap-3 items-center">
+            <PhoneIcon />
+            <a href="tel:4065550120">(406) 555-0120</a>
+          </div>
+          <div className="flex gap-3 items-center">
+            <EmailIcon />
+            <a href="mailto:info@smyl.com">info@smyl.com</a>
+          </div>
+          <div className="flex gap-3 items-center">
+            <LocationIcon />
+            <a href="#">6391 Elgin St. Celina</a>
+          </div>
+        </div>
+      </div>
+      <div className="mx-auto px-4 md:px-12 relative pb-12 lg:hidden">
+        <div className="grid grid-cols-2 gap-4 items-end">
+          <div>
+            <div className="mb-6">
+              <Link href="/" prefetch>
+                <SmyleIcon className="transition-all duration-300 h-auto w-[118px] h-[84px]" />
+              </Link>
+            </div>
+            <div className="">
+              <h2 className="text-[20px] font-semibold text-primary">
+                Your Everyday Relationship Coach
               </h2>
-              <p className="text-white text-base md:text-[18px] font-bold leading-[28px] tracking-[0.2px] mb-6">
-                Join 500,000+ couples who found their spark again.
-              </p>
-              <Button
-                varient="secondary"
-                text="DOWNLOAD FREE"
-                className="text-white hover:text-primary"
-              />
             </div>
-            <div className="w-full lg:max-w-[619px] xl:max-w-full xl:w-[619px] 2xl:w-[670px] lg:absolute lg:-right-5 lg:bottom-0 xl:right-4">
-              <div className="lg:-mt-32 lg:-mb-14">
-                <Image
-                  src="/images/happy.png"
-                  height={619}
-                  width={619}
-                  alt="footer"
-                  className="ms-auto max-w-full lg:w-[550px] xl:w-full lg:h-full"
-                />
+          </div>
+          <div className="space-y-4">
+            <div className="flex gap-3 items-center">
+              <PhoneIcon />
+              <a href="tel:4065550120">(406) 555-0120</a>
+            </div>
+            <div className="flex gap-3 items-center">
+              <EmailIcon />
+              <a href="mailto:info@smyl.com">info@smyl.com</a>
+            </div>
+            <div className="flex gap-3 items-center">
+              <LocationIcon />
+              <a href="#">6391 Elgin St. Celina</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="border-t-[0.5px] border-b-[0.5px] border-[#5D5D5D] xl:hidden">
+        <div className="w-full max-w-full text-center gap-5 py-3 px-5 space-y-6 py-6">
+          <p className="text-[#333] text-[20px] font-medium leading-[150%]">
+            Download The App
+          </p>
+          <div className="flex justify-center gap-3">
+            <a
+              href="#"
+              className="bg-[#282828] rounded-[70px] flex gap-2 items-center px-4 py-2"
+            >
+              <AppleIcon />
+              <div className="-mt-2">
+                <span className="text-white text-[9px] font-medium inline-block leading-[100%] font-figtree">
+                  Download on the
+                </span>
+                <h6 className="text-base font-medium text-white -tracking-[0.47px] leading-[100%] font-figtree">
+                  App Store
+                </h6>
               </div>
+            </a>
+            <a
+              href="#"
+              className="bg-[#282828] rounded-[70px] flex gap-2 items-center px-4 py-2"
+            >
+              <PlayStoreIcon />
+              <div className="-mt-2">
+                <span className="text-white text-[9px] font-medium inline-block leading-[100%] font-figtree">
+                  GET IT ON
+                </span>
+                <h6 className="text-base font-medium text-white -tracking-[0.47px] leading-[100%] font-figtree">
+                  Google Play
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div className="border-t-[0.5px] border-b-[0.5px] border-[#5D5D5D]">
+        <div className="relative grid grid-cols-4 xl:flex xl:justify-between">
+          <div className="flex-none xl:w-[180px] py-6 xl:py-3 px-5 border-r-[0.5px] border-[#5D5D5D] flex items-center justify-center">
+            <a href="#">
+              <Facebook />
+            </a>
+          </div>
+          <div className="flex-none xl:w-[180px] py-6 xl:py-3 px-5 border-r-[0.5px] border-[#5D5D5D] flex items-center justify-center">
+            <a href="#">
+              <Twitter />
+            </a>
+          </div>
+          <div className="w-full max-w-full hidden xl:flex items-center justify-center gap-5 py-3 px-5">
+            <p className="text-[#333] text-[20px] font-medium leading-[150%]">
+              Download The App
+            </p>
+            <div className="grid grid-cols-2 gap-3">
+              <a
+                href="#"
+                className="bg-black rounded-[70px] flex gap-2 items-center px-4 py-2"
+              >
+                <AppleIcon />
+                <div className="-mt-2">
+                  <span className="text-white text-[9px] font-medium inline-block leading-[100%] font-figtree">
+                    Download on the
+                  </span>
+                  <h6 className="text-base font-medium text-white -tracking-[0.47px] leading-[100%] font-figtree">
+                    App Store
+                  </h6>
+                </div>
+              </a>
+              <a
+                href="#"
+                className="bg-black rounded-[70px] flex gap-2 items-center px-4 py-2"
+              >
+                <PlayStoreIcon />
+                <div className="-mt-2">
+                  <span className="text-white text-[9px] font-medium inline-block leading-[100%] font-figtree">
+                    GET IT ON
+                  </span>
+                  <h6 className="text-base font-medium text-white -tracking-[0.47px] leading-[100%] font-figtree">
+                    Google Play
+                  </h6>
+                </div>
+              </a>
             </div>
+          </div>
+          <div className="flex-none xl:w-[180px] py-6 xl:py-3 px-5 border-l-[0.5px] border-[#5D5D5D] flex items-center justify-center">
+            <a href="#">
+              <Instagram />
+            </a>
+          </div>
+          <div className="flex-none xl:w-[180px] py-6 xl:py-3 px-5 border-l-[0.5px] border-[#5D5D5D] flex items-center justify-center">
+            <a href="#">
+              <LinkedIn />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div className="py-5">
+        <div className="mx-auto px-4 md:px-12 relative flex-wrap lg:flex-nowrap flex justify-center gap-4 lg:gap-16">
+          <p className="text-[14px] text-[#282828] lg:text-[#6A6A6A] font-medium leading-[140%] traking-[-0.28px]">
+            &copy; 2025 smyl. All rights reserved.
+          </p>
+          <div className="flex items-center gap-4">
+            <Link
+              className="text-[14px] text-[#282828] lg:text-[#6A6A6A] font-medium leading-[140%] traking-[-0.28px]"
+              href="#"
+            >
+              Term & Condition
+            </Link>
+            <div className="h-[20px] w-[1px] bg-[#ACB5BB]"></div>
+            <Link
+              className="text-[14px] text-[#282828] lg:text-[#6A6A6A] font-medium leading-[140%] traking-[-0.28px]"
+              href="#"
+            >
+              Privacy & Policy
+            </Link>
           </div>
         </div>
       </div>

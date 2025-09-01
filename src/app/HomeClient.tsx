@@ -18,9 +18,8 @@ export default function HomeClient() {
       <HowItWorks />
       <Features />
       <Assistant />
-      <Testimonials />
-      <Download />
       <FAQs />
+      <Testimonials />
       <Blogs />
     </div>
   );

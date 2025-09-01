@@ -1,183 +1,144 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
-import { Star } from "../SVG";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Mousewheel, Navigation } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper/types";
 
 import "swiper/css";
-import "swiper/css/mousewheel";
-import "swiper/css/autoplay";
-import "swiper/css/navigation";
 
 const testimonialData = [
   {
-    userImage: "/images/reviews/sabo-masties.png",
-    stars: "5",
-    authorName: "Sabo Masties",
-    desc: "Smilo suggested a ‘weekly date night’ streak. Best. Idea. Ever.",
+    userImage: "/images/reviews/user-1.svg",
+    authorName: "John David",
+    heading: "What healthy relationships say about SMYL",
+    role: "Employee",
+    desc: "Smilo Knows What Your Partner Wants… Before They Do. Smilo learns your partner’s loves, hates, and secret cravings. Just connect your profiles, answer a few questions, and let Smilo work its magic.",
   },
   {
-    userImage: "/images/reviews/sabo-masties.png",
-    stars: "5",
-    authorName: "Sabo Masties",
-    desc: "Smilo suggested a ‘weekly date night’ streak. Best. Idea. Ever.",
+    userImage: "/images/reviews/user-2.svg",
+    authorName: "Sarah Lee",
+    heading: "Couples are bonding better with SMYL",
+    role: "Designer",
+    desc: "We found new ways to connect every week. Smilo gave us challenges that made our relationship fun again!",
   },
   {
-    userImage: "/images/reviews/sabo-masties.png",
-    stars: "5",
-    authorName: "Sabo Masties",
-    desc: "Smilo suggested a ‘weekly date night’ streak. Best. Idea. Ever.",
+    userImage: "/images/reviews/user-3.svg",
+    authorName: "Michael Scott",
+    heading: "Simple changes, big results",
+    role: "Manager",
+    desc: "Our weekly streak made us prioritize time together. It’s amazing how something small turned into a big shift.",
   },
   {
-    userImage: "/images/reviews/sabo-masties.png",
-    stars: "5",
-    authorName: "Sabo Masties",
-    desc: "Smilo suggested a ‘weekly date night’ streak. Best. Idea. Ever.",
+    userImage: "/images/reviews/user-4.svg",
+    authorName: "Emily Johnson",
+    heading: "Relationships made stronger",
+    role: "Developer",
+    desc: "Smilo reminded us to focus on each other. It’s like having a coach for your relationship—subtle but powerful.",
+  },
+  {
+    userImage: "/images/reviews/user-5.svg",
+    authorName: "David Kim",
+    heading: "The best relationship tool we’ve tried",
+    role: "Entrepreneur",
+    desc: "We thought we didn’t need help, but Smilo surprised us. It gave us ideas we wouldn’t have come up with ourselves.",
+  },
+  {
+    userImage: "/images/reviews/user-3.svg",
+    authorName: "Michael Scott",
+    heading: "Simple changes, big results",
+    role: "Manager",
+    desc: "Our weekly streak made us prioritize time together. It’s amazing how something small turned into a big shift.",
   },
 ];
 
 const Testimonials = () => {
-  const prevRef = useRef<HTMLButtonElement>(null);
-  const nextRef = useRef<HTMLButtonElement>(null);
   const swiperRef = useRef<SwiperType | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="testimonials" className="py-10 2xl:py-16 lg:pb-0">
-      <div className="mx-auto px-4 md:px-12 relative">
-        <header className="w-[800px] max-w-full mb-10 mx-auto">
-          <div className="text-center">
-            <p className="text-[#A7A6A6] font-medium text-base lg:text-[18px] 2xl:text-[20px] leading-[25px] mb-6 flex justify-center">
-              <span className="w-[17px] h-[2px] bg-primary mt-3 me-3"></span>
-              Real Couples, Real Results
-            </p>
-            <div>
-              <h2 className="inline-block text-blue-grey text-[24px] lg:text-[34px] 2xl:text-[48px] font-bold leading-[1.4] mb-6 relative">
-                <span className="relative">
-                  Don’t Just Take Our Word For It
-                </span>
-              </h2>
+    <section className="py-16">
+      <div className="mx-auto px-4 md:px-12">
+        <div className="flex lg:flex-nowrap flex-wrap justify-between lg:gap-4 xl:gap-8 2xl:gap-10 items-center">
+          {/* Left: floating images */}
+          <div className="flex gap-24 w-full lg:w-1/2 xl:w-5/12">
+            <div className="relative h-[500px] flex items-center justify-center w-full lg:w-8/12">
+              {testimonialData.map((item, i) => (
+                <div
+                  key={i}
+                  className={`testimonial-slide absolute rounded-full overflow-hidden transition-all cursor-pointer
+                ${
+                  activeIndex === i
+                    ? "scale-[0.9] lg:scale-[1] xl:scale-[1.2]"
+                    : "lg:scale-[0.8] xl:scale-[0.9]"
+                }
+              `}
+                  onClick={() => swiperRef.current?.slideTo(i)}
+                >
+                  <Image
+                    src={item.userImage}
+                    alt={item.authorName}
+                    width={80}
+                    height={80}
+                    className="rounded-full w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Middle: vertical progress line with dots */}
+            <div className="relative hidden lg:flex justify-center">
+              <div className="w-[4px] bg-[#F2EFE4] h-full"></div>
+              <div className="absolute top-12 bottom-12 flex flex-col items-center justify-between">
+                {testimonialData.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => swiperRef.current?.slideTo(i)}
+                    className={`w-[35.905px] bg-[#FFFCF0] h-[35.905px] p-[7px] rounded-full border-[0.748px] transition-all 
+                  ${
+                    activeIndex === i ? "border-[#0D0D0D]" : "border-[#C4C2B8]"
+                  }`}
+                  >
+                    <div
+                      className={`h-full w-full rounded-full transition-all ${
+                        activeIndex === i ? "bg-[#0D0D0D]" : ""
+                      }`}
+                    ></div>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
-        </header>
-        <div className="relative pt-32 pb-28">
-          <div className="bg-theme-2 w-[80%] absolute top-0 bottom-0 left-1/2 -translate-x-1/2"></div>
-          <Swiper
-            modules={[Autoplay, Mousewheel, Navigation]}
-            freeMode={true}
-            loop={true}
-            autoplay={{
-              delay: 2000,
-              disableOnInteraction: false,
-            }}
-            onSwiper={(swiper) => {
-              swiperRef.current = swiper;
-            }}
-            navigation={{
-              prevEl: prevRef.current,
-              nextEl: nextRef.current,
-            }}
-            scrollbar={{ draggable: true }}
-            breakpoints={{
-              640: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-            onInit={(swiper) => {
-              if (typeof swiper.params.navigation !== "boolean") {
-                swiper.params.navigation!.prevEl = prevRef.current;
-                swiper.params.navigation!.nextEl = nextRef.current;
-                swiper.navigation.init();
-                swiper.navigation.update();
-              }
-            }}
-            className="testimonial-slider"
-          >
-            {testimonialData.map((data, i) => (
-              <SwiperSlide key={i}>
-                <article
-                  className="group transition-all delay-100"
-                  aria-label={`Testimonial from ${data.authorName}`}
-                >
-                  <div className="bg-white border border-[#3131311A] rounded-[5px] p-7 relative h-full w-full">
-                    <div className="h-[67px] w-[67px] rounded-full bg-[#FED0E6] mb-3">
-                      <Image
-                        src={data.userImage}
-                        height={67}
-                        width={67}
-                        alt={`${data.authorName} profile picture`}
-                      />
-                    </div>
 
-                    <p className="leading-[30px] text-[20px] font-medium text-[#6A635B] mb-3 tracking-[-0.1px]">
+          {/* Right: testimonial text */}
+          <div className="w-full lg:w-1/2 xl:w-1/2">
+            <Swiper
+              modules={[Autoplay]}
+              slidesPerView={1}
+              loop
+              autoplay={{ delay: 3000, disableOnInteraction: false }}
+              onSwiper={(swiper) => (swiperRef.current = swiper)}
+              onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+            >
+              {testimonialData.map((data, i) => (
+                <SwiperSlide key={i}>
+                  <div className="lg:text-left text-center">
+                    <h2 className="font-figtree text-3xl lg:text-4xl xl:text-5xl font-bold leading-normal text-[#0D0D0D] tracking-[1.44px] mb-7">
+                      What healthy relationships say about SMYL
+                    </h2>
+                    <p className="text-base font-[400] text-[#0D0D0D] mb-4 leading-normal tracking-[0.48px]">
                       {data.desc}
                     </p>
-                    <div className="flex items-center gap-4 mb-5">
-                      <div className="flex gap-2">
-                        {Array.from({ length: Number(data.stars) }).map(
-                          (_, index) => (
-                            <span key={index}>
-                              <Star />
-                            </span>
-                          )
-                        )}
-                      </div>
-                    </div>
-                    <p className="leading-[20px] text-[14px] font-bold text-primary">
+                    <p className="font-bold text-[#0D0D0D] text-base">
                       {data.authorName}
                     </p>
+                    <p className="font-[400] text-[#0D0D0D] text-base">
+                      {data.role}
+                    </p>
                   </div>
-                </article>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          <div className="absolute left-1/2 bottom-8 translate-x-[-50%] flex items-center p-2 justify-center bg-white rounded-full w-[120px] h-[66px] z-10">
-            {/* Prev Button */}
-            <button
-              ref={prevRef}
-              onClick={() => swiperRef.current?.slidePrev()}
-              className="relative overflow-hidden group w-[50px] h-[50px] flex items-center justify-center rounded-full bg-white"
-              aria-label="Previous"
-            >
-              <span className="absolute inset-0 bg-primary transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out z-0 rounded-full" />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="10"
-                viewBox="0 0 20 10"
-                fill="none"
-                className="rotate-180 relative z-10 transition-colors duration-300 group-hover:[&>path]:fill-white"
-              >
-                <path
-                  d="M20 5.15072L14.9713 0.98405L14.9713 4.31738L5.96244e-08 4.31738L3.97496e-08 5.98405L14.9713 5.98405L14.9713 9.31738L20 5.15072Z"
-                  fill="#3F3115"
-                />
-              </svg>
-            </button>
-
-            {/* Next Button */}
-            <button
-              ref={nextRef}
-              onClick={() => swiperRef.current?.slideNext()}
-              className="relative overflow-hidden group w-[50px] h-[50px] flex items-center justify-center rounded-full"
-              aria-label="Next"
-            >
-              <span className="absolute inset-0 bg-primary translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out z-0 rounded-full" />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="10"
-                viewBox="0 0 20 10"
-                fill="none"
-                className="relative z-10 transition-colors duration-300 group-hover:[&>path]:fill-white"
-              >
-                <path
-                  d="M20 5.15072L14.9713 0.98405L14.9713 4.31738L5.96244e-08 4.31738L3.97496e-08 5.98405L14.9713 5.98405L14.9713 9.31738L20 5.15072Z"
-                  fill="#3F3115"
-                />
-              </svg>
-            </button>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
       </div>

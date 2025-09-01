@@ -34,10 +34,10 @@ const SingleBlog = ({ data }: Props) => {
   return (
     <Link
       href={`/blogs/${data?.slug}`}
-      className="block shadow-blog border border-theme hover:shadow-blog-hover transition-all duration-300 p-6 rounded-[15px] w-full hover:-translate-y-2"
+      className="block transition-all duration-300 w-full hover:-translate-y-2"
       prefetch
     >
-      <div className="rounded-[15px] overflow-hidden mb-6 -mt-20">
+      <div className="rounded-[15px] overflow-hidden mb-6">
         {data?.cover?.url ? (
           <ProgressiveImage
             src={
@@ -63,15 +63,14 @@ const SingleBlog = ({ data }: Props) => {
           />
         )}
       </div>
-      <p className="inline-block text-[20px] font-semibold bg-theme-2 bg-opacity-40 leading-[1.3] rounded-[7px] text-black px-[7px] mb-3">
-        {data?.author?.updatedAt ? formatDate(data.author.updatedAt) : "N/A"}
+      <p className="inline-block text-[18px] font-medium bg-[#FAF5E3] border border-[#CFC8AE] rounded-[40px] px-4 py-[5px] mb-3">
+        {data?.author?.updatedAt
+          ? formatDate(data.author.updatedAt)
+          : "12-05-2023"}
       </p>
-      <h2 className="text-black text-base lg:text-[18px] 2xl:text-[20px] leading-[22px] lg:leading-[26px] 2xl:leading-[28px] font-bold mb-5 text-truncate-2">
+      <h2 className="text-[20px] font-semibold text-[#222222] text-truncate-2">
         {capitalizeFirst(data?.title)}
       </h2>
-      <p className="text-[14px] leading-[1.4] font-medium text-truncate-4">
-        {capitalizeFirst(data?.description)}
-      </p>
     </Link>
   );
 };

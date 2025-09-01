@@ -1,14 +1,66 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import { apiURL, authToken } from "../utils/constent";
-import Image from "next/image";
+import { apiURL } from "../utils/constent";
 import SingleBlog from "./SingleBlog";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Mousewheel, Navigation } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper/types";
+
+import "swiper/css";
+import "swiper/css/mousewheel";
+import "swiper/css/autoplay";
+import "swiper/css/navigation";
+import DummyBlog from "./DummyBlog";
+import Link from "next/link";
+
+const blogData = [
+  {
+    image: "/images/new/blog.png",
+    title: "How people are managing their current relation with spark",
+    slug: "/blog-1",
+    date: "12-05-2023",
+  },
+  {
+    image: "/images/new/blog.png",
+    title: "How people are managing their current relation with spark",
+    slug: "/blog-2",
+    date: "12-05-2023",
+  },
+  {
+    image: "/images/new/blog.png",
+    title: "How people are managing their current relation with spark",
+    slug: "/blog-3",
+    date: "12-05-2023",
+  },
+  {
+    image: "/images/new/blog.png",
+    title: "How people are managing their current relation with spark",
+    slug: "/blog-4",
+    date: "12-05-2023",
+  },
+  {
+    image: "/images/new/blog.png",
+    title: "How people are managing their current relation with spark",
+    slug: "/blog-5",
+    date: "12-05-2023",
+  },
+  {
+    image: "/images/new/blog.png",
+    title: "How people are managing their current relation with spark",
+    slug: "/blog-6",
+    date: "12-05-2023",
+  },
+];
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const prevRef = useRef<HTMLButtonElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
+  const swiperRef = useRef<SwiperType | null>(null);
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -30,62 +82,140 @@ const Blogs = () => {
       aria-label="Expert Insights & Growth Strategies"
     >
       <div className="mx-auto px-4 md:px-12 relative">
-        <header className="w-[800px] max-w-full mb-0 mx-auto">
-          <div className="text-center">
-            <p className="text-[#A7A6A6] font-medium text-base lg:text-[18px] 2xl:text-[20px] leading-[25px] mb-6 flex justify-center">
-              <span className="w-[17px] h-[2px] bg-primary mt-3 me-3"></span>
-              Featured Updates
+        <header className="lg:flex max-w-full mb-0 mx-auto items-center lg:text-left text-center">
+          <div className="lg:w-1/3">
+            <h1 className="font-figtree text-primary text-[32px] lg:text-[36px] xl:text-[40px] 2xl:text-[44px] font-semibold leading-normal tracking-[0.94px] lg:tracking-[1.44px] mb-3 xl:mb-5">
+              Amazing Research
+              <br /> News and Blogs
+            </h1>
+          </div>
+          <div className="lg:w-1/3">
+            <p className="text-[#747474] text-[16px] leading-normal font-[400]">
+              In publishing and graphic design, Lorem ipsum is a placeholder
+              text commonly used to demonstrate the visual form.
             </p>
-            <div>
-              <h2 className="inline-block text-blue-grey text-[24px] lg:text-[34px] 2xl:text-[48px] font-bold leading-[1.4] mb-6 relative">
-                <Image
-                  src="/images/heading-layer-2.png"
-                  height={10}
-                  width={181}
-                  alt="layer"
-                  className="absolute top-[30px] lg:top-[40px] 2xl:top-[56px] right-[140px] hidden md:inline-block"
-                />
-                <span className="relative">On The Move, Our Latest Blogs</span>
-              </h2>
-            </div>
           </div>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 xl:gap-10 2xl:gap-14 md:justify-center mt-20">
-          {loading
-            ? // Loading Skeletons
-              Array.from({ length: 3 }).map((_, i) => (
-                <article
-                  key={i}
-                  className="w-full"
-                  aria-label="Loading blog post"
-                >
-                  <div className="shadow-blog border border-[#EBEAED] hover:shadow-blog-hover transition-all duration-300 p-6 rounded-[8.6px] w-full">
-                    <div className="rounded-[8.6px] overflow-hidden mb-5 animate-pulse">
-                      <div className="w-full h-[175px] bg-gray-200 rounded-lg" />
-                    </div>
+        <div className="my-12">
+          <Swiper
+            modules={[Autoplay, Mousewheel, Navigation]}
+            freeMode={true}
+            loop={true}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            navigation={{
+              prevEl: prevRef.current,
+              nextEl: nextRef.current,
+            }}
+            scrollbar={{ draggable: true }}
+            breakpoints={{
+              640: { slidesPerView: 1, spaceBetween: 0 },
+              768: { slidesPerView: 2, spaceBetween: 16 },
+              1024: { slidesPerView: 3, spaceBetween: 20 },
+              1400: { slidesPerView: 3, spaceBetween: 32 },
+              1600: { slidesPerView: 4, spaceBetween: 48 },
+            }}
+            onInit={(swiper) => {
+              if (typeof swiper.params.navigation !== "boolean") {
+                swiper.params.navigation!.prevEl = prevRef.current;
+                swiper.params.navigation!.nextEl = nextRef.current;
+                swiper.navigation.init();
+                swiper.navigation.update();
+              }
+            }}
+            className="testimonial-slider"
+          >
+            {blogs.length > 1
+              ? blogs?.slice(0, 6)?.map((data, i: number) => (
+                  <SwiperSlide key={i}>
+                    <SingleBlog data={data} />
+                  </SwiperSlide>
+                ))
+              : blogData.map((data, i: number) => (
+                  <SwiperSlide key={i}>
+                    <DummyBlog data={data} />
+                  </SwiperSlide>
+                ))}
+          </Swiper>
+          <div className="absolute right-0 top-8 translate-x-[-50%] hidden lg:flex items-center p-2 justify-center gap-8 z-10">
+            {/* Prev Button */}
+            <button
+              ref={prevRef}
+              onClick={() => swiperRef.current?.slidePrev()}
+              className="relative border border-dashed border-[#151515] group w-[48px] h-[48px] flex items-center justify-center rounded-full"
+              aria-label="Previous"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="43"
+                height="38"
+                viewBox="0 0 43 38"
+                fill="none"
+                className="-me-6"
+              >
+                <path
+                  d="M15.0031 9.7373L5.74072 18.9997L15.0031 28.262"
+                  stroke="#151515"
+                  strokeMiterlimit="10"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M41.6 19L6.50366 19"
+                  stroke="#151515"
+                  strokeMiterlimit="10"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
 
-                    <div className="space-y-3">
-                      <div className="h-6 bg-gray-200 rounded w-3/4" />
-                      <div className="h-4 bg-gray-200 rounded w-full" />
-                      <div className="h-4 bg-gray-200 rounded w-5/6" />
-                    </div>
-
-                    <footer className="flex gap-5 items-center mt-5 animate-pulse">
-                      <div className="flex-1 space-y-2">
-                        <div className="h-4 bg-gray-200 rounded w-1/3" />
-                        <div className="h-3 bg-gray-200 rounded w-1/4" />
-                      </div>
-                    </footer>
-                  </div>
-                </article>
-              ))
-            : // Actual Blog Items
-              blogs?.slice(0, 3)?.map((data, i: number) => (
-                <article key={i} className="w-full">
-                  <SingleBlog data={data} />
-                </article>
-              ))}
+            {/* Next Button */}
+            <button
+              ref={nextRef}
+              onClick={() => swiperRef.current?.slideNext()}
+              className="relative border border-dashed border-[#151515] group w-[48px] h-[48px] flex items-center justify-center rounded-full"
+              aria-label="Next"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="43"
+                height="38"
+                viewBox="0 0 43 38"
+                fill="none"
+                className="-ms-6"
+              >
+                <path
+                  d="M27.9969 9.7373L37.2593 18.9997L27.9969 28.262"
+                  stroke="#151515"
+                  strokeMiterlimit="10"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M1.40005 19L36.4963 19"
+                  stroke="#151515"
+                  strokeMiterlimit="10"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div className="flex justify-center">
+          <Link
+            href="/blogs"
+            className="bg-button text-white px-5 py-4 text-base rounded-[50px] font-medium tracking-[0.48px]"
+          >
+            View All Blogs
+          </Link>
         </div>
       </div>
     </section>

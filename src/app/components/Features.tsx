@@ -3,6 +3,7 @@ import React from "react";
 import { data } from "../data";
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Features {
   image: string;
@@ -23,62 +24,29 @@ const Features = () => {
       aria-label="Case Studies"
     >
       <div className="mx-auto px-4 md:px-12 relative">
-        <header className="w-[800px] max-w-full mb-10 mx-auto">
-          <div className="text-center">
-            <p className="text-[#A7A6A6] font-medium text-base lg:text-[18px] 2xl:text-[20px] leading-[25px] mb-6 flex justify-center">
-              <span className="w-[17px] h-[2px] bg-primary mt-3 me-3"></span>
-              Key Features
-            </p>
-            <div>
-              <h2 className="inline-block text-blue-grey text-[24px] lg:text-[34px] 2xl:text-[48px] font-bold leading-[1.4] mb-6 relative">
-                <Image
-                  src="/images/heading-layer-2.png"
-                  height={10}
-                  width={143}
-                  alt="layer"
-                  className="absolute top-[30px] lg:top-[40px] 2xl:top-[56px] right-0 hidden md:inline-block"
-                />
-                <span className="relative">Why You’ll Love SMILE</span>
-              </h2>
-            </div>
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 2xl:gap-24 items-center">
+          <div>
+            <video autoPlay loop muted playsInline className="w-full h-auto">
+              <source src="/images/new/smylo-video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
-        </header>
-        <div className="bg-theme-2 px-6 py-6 lg:px-0 lg:py-[46px] 2xl:py-[56px] rounded-[45px] bg-opacity-50">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-0 md:justify-center">
-            {features.slice(0, 3).map((data: Features, i: number) => (
-              <article
-                key={i}
-                className=" w-full 
-  lg:px-[36px] xl:px-[42px] 2xl:px-[50px] 
-  lg:py-0 pb-8 
-  [&:not(:last-child)]:border-b border-0 
-  lg:[&:not(:last-child)]:border-b-0 
-  lg:[&:not(:last-child)]:border-r 
-  lg:[&:not(:last-child)]:border-r-[1px] 
-  border-primary"
-                aria-label={`Case Study ${i + 1}`}
-              >
-                <div className="group relative">
-                  <div className="mb-[20px] relative">
-                    <Image
-                      height={194}
-                      width={285}
-                      src={data.image}
-                      alt={data.title}
-                      className="max-w-full max-h-[250px] mx-auto"
-                    />
-                  </div>
-                  <div className="text-center">
-                    <h2 className="leading-[1.2] text-[28px] font-semibold text-black mb-4">
-                      {data.title}
-                    </h2>
-                    <p className="leading-[1.6] text-[20px] font-medium text-black">
-                      {data.desc}
-                    </p>
-                  </div>
-                </div>
-              </article>
-            ))}
+          <div className="text-center lg:text-left">
+            <h1 className="font-figtree text-primary text-[32px] lg:text-[36px] xl:text-[40px] 2xl:text-[44px] font-semibold leading-normal tracking-[0.94px] lg:tracking-[1.44px] mb-3 xl:mb-5">
+              Meet Smylo
+            </h1>
+            <p className="text-[#747474] text-[16px] leading-normal font-[400] mb-8">
+              your personal AI relationship coach — part cheerleader, part
+              peacekeeper, and part playful sidekick. It listens, learns, and
+              gives tailored tips, daily missions, and fun challenges to help
+              you and your loved ones understand each other better.
+            </p>
+            <Link
+              href="#"
+              className="bg-button text-white px-5 py-4 text-base rounded-[50px] font-medium tracking-[0.48px]"
+            >
+              Explore Smylo
+            </Link>
           </div>
         </div>
       </div>

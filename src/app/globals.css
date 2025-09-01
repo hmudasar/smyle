@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -21,6 +21,7 @@
     rgba(249, 249, 249, 0.73) 100%
   );
   --fontspring: "Fontspring Recoleta Alt", serif;
+  --fontFigtree: "Figtree", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -81,42 +82,7 @@ body {
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
-.girl-bg {
-  background-color: #fff;
-  box-shadow: 0 6px 20.02px rgb(0 0 0 / 10%);
-  border-radius: 50%;
-  z-index: 9;
-}
-p {
-  font-size: 20px;
-  line-height: 30px;
-}
-.list-1 li {
-  background-image: url("/images/icons/tick-orange.svg");
-  background-position: 0px 2px;
-  background-repeat: no-repeat;
-  padding-left: 30px;
-  font-size: 18px;
-  line-height: 22px;
-  margin-bottom: 16px;
-}
-.shadow-box {
-  box-shadow: -40px 100px 70px 0px #7979790d, 40px 0px 70px 0px #7979790d;
-}
-.hover\:shadow-box:hover {
-  box-shadow: 0px 1.85px 3.15px 0px #38383806, 0px 8.15px 6.52px 0px #3838380a,
-    0px 20px 13px 0px #3838380d, 0px 38.52px 25.48px 0px #3838380f;
-}
-.shadow-box-light {
-  box-shadow: 0px 2.77px 2.21px 0px #00000005, 0px 6.65px 5.32px 0px #00000007,
-    0px 12.52px 10.02px 0px #00000009;
-}
-.dashed-line {
-  margin: 1rem 0;
-  width: 100%;
-  height: 1px;
-  border: 1px dashed #505b75;
-}
+
 .swiper.swiper-horizontal {
   padding-bottom: 80px;
 }
@@ -219,21 +185,7 @@ p {
 .markdown-content ul {
   @apply list-disc pl-5 mb-4;
 }
-.mobile-menu {
-  visibility: hidden;
-  opacity: 0;
-}
-.mobile-menu.open {
-  visibility: visible;
-  opacity: 1;
-}
-.off-canvas-inner-content {
-  transform: translateX(calc(-100% - 50px));
-  transition: 0.4s;
-}
-.open .off-canvas-inner-content {
-  transform: none;
-}
+
 .loader::after {
   content: "";
   width: calc(100% - 30px);
@@ -279,7 +231,86 @@ p {
   width: 100%;
   height: 100%;
 }
+.smyle-slider .swiper-slide {
+  position: relative;
+}
+.smyle-slider .swiper-slide:not(.swiper-slide-active)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 252, 240, 0.49) -27.07%,
+    #fffcf0 100%
+  );
+  z-index: 1;
+}
+.blog-content p,
+.blog-content ul,
+.blog-content ol,
+.blog-content h2,
+.blog-content h3 {
+  color: #222;
+  font-style: normal;
+  line-height: normal;
+  margin-bottom: 16px;
+}
 
+.blog-content h2 {
+  font-size: 32px;
+  font-weight: 700;
+}
+.blog-content h3 {
+  font-size: 24px;
+  font-weight: 600;
+}
+hr {
+  border-bottom: 0.5px solid #2b2b2b;
+  margin: 1.5rem 0 2rem;
+}
+
+.blog-content ul,
+.blog-content ol {
+  padding-left: 20px;
+}
+.blog-content ul {
+  list-style: disc;
+}
+.blog-content ol {
+  list-style: decimal;
+}
+.blog-content ul li,
+.blog-content ol li {
+  font-size: 16px;
+  letter-spacing: 0.48px;
+}
+.testimonial-slide:first-child {
+  top: 10%;
+  left: 5%;
+}
+.testimonial-slide:nth-child(2) {
+  left: 0;
+  top: 60%;
+}
+.testimonial-slide:nth-child(3) {
+  bottom: 5%;
+  right: 5%;
+}
+.testimonial-slide:nth-child(4) {
+  top: 40%;
+  right: 3%;
+}
+.testimonial-slide:nth-child(5) {
+  top: 2%;
+  right: 2%;
+}
+.testimonial-slide:nth-child(6) {
+  top: 20%;
+  left: 35%;
+}
 @media (width >= 1024px) {
   p {
     font-size: 16px;
@@ -336,6 +367,18 @@ p {
   .services-swiper.swiper .swiper-button-prev {
     right: 60px;
   }
+  .blog-content h2 {
+    font-size: 24px;
+  }
+  .blog-content h3 {
+    font-size: 20px;
+  }
+  .blog-content p,
+  .blog-content ul li,
+  .blog-content ol li {
+    font-size: 14px;
+    letter-spacing: 0.42px;
+  }
 }
 
 @keyframes shimmer {
@@ -344,5 +387,15 @@ p {
   }
   100% {
     background-position: 100% 0;
+  }
+}
+@media (width >= 420px) {
+  .xsm\:w-\[406px\] {
+    width: 406px;
+  }
+}
+@media (width >= 320px) {
+  .s2m\:gap-3 {
+    gap: 1rem;
   }
 }

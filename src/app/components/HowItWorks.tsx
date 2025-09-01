@@ -1,50 +1,73 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import Button from "./Button";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCards, Autoplay } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/autoplay";
+
+const smyling = [
+  { image: "/images/new/smylies/bn-full-angry.png", title: "Full Angry" },
+  { image: "/images/new/smylies/bn-normal.png", title: "Normal" },
+  { image: "/images/new/smylies/bn-happy.png", title: "Happy" },
+  { image: "/images/new/smylies/bn-full-happy.png", title: "Full Happy" },
+  { image: "/images/new/smylies/bn-bit-angry.png", title: "Angry" },
+];
 
 const HowItWorks = () => {
   return (
     <section className="relative lg:py-10 2xl:py-24">
-      <Image
-        src="/images/bg-layer.png"
-        height={398}
-        width={250}
-        alt="bg-layer"
-        className="absolute right-0 lg:-top-54 2xl:-top-72 bottom-0 w-[250px] lg:w-[300px] 2xl:w-[398px]"
-      />
-      <div className="container px-6 mx-auto relative">
-        <div className="flex flex-wrap lg:flex-nowrap md:gap-12 lg:gap-12 2xl:gap-20 ">
-          <div className="w-full lg:w-6/12 lg:pe-8 mb-8 lg:mb-0">
-            <p className="block text-[#A7A6A6] font-medium text-base lg:text-[18px] 2xl:text-[20px] leading-[25px] mb-6 flex">
-              <span className="w-[17px] h-[2px] bg-primary mt-3 me-3"></span>
-              How It Works?
+      <div className="mx-auto px-4 md:px-12 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24">
+          <div className="lg:text-left text-center">
+            <h1 className="font-figtree text-primary text-[32px] lg:text-[36px] xl:text-[40px] 2xl:text-[44px] font-semibold leading-normal tracking-[0.94px] lg:tracking-[1.44px] mb-3 xl:mb-5">
+              Love Isn't About Big Moments, It's About the Small Ones You Miss
+            </h1>
+            <p className="text-[#747474] text-[16px] leading-normal font-[400] mb-8">
+              You swore you'd remember their coffee order. But life gets busy,
+              and 'I'll do it later' becomes 'Why don't you ever listen?'! SMILE
+              turns those missed moments into shared joy.
             </p>
-            <h2 className="text-blue-grey text-[24px] lg:text-[34px] 2xl:text-[48px] font-bold leading-[1.4] mb-6 relative">
-              <Image
-                src="/images/heading-layer-2.png"
-                height={10}
-                width={181}
-                alt="layer"
-                className="absolute top-[30px] lg:top-[42px] 2xl:top-[56px] left-28 md:inline-block hidden md:inline-block"
-              />
-              <span className="relative">
-                From Forgotten Chores to Happier Ever Afters
-              </span>
-            </h2>
-            <p className="font-semibold text-[20px] lg:text-[24px] 2xl:text-[28px] text-blue-grey leading-[1.6] mb-8">
-              Assign tasks. Complete them. Watch your partner’s smiley glow.
-            </p>
-            <Button text="Get Smilo’s Help – Try Free" varient="secondary" />
           </div>
-          <div className="w-full lg:w-6/12 text-right">
-            <Image
-              src="/images/robot.png"
-              alt="rebote"
-              height={490}
-              width={557}
-              className="ms-auto"
-            />
+
+          <div className="relative flex items-center justify-center">
+            <Swiper
+              modules={[Autoplay]}
+              slidesPerView={3}
+              speed={600}
+              centeredSlides={true}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+                waitForTransition: true,
+              }}
+              loop={true}
+              className="w-full smyle-slider"
+            >
+              {smyling.map((item, index) => (
+                <SwiperSlide key={index}>
+                  {({ isActive }) => (
+                    <div className="flex flex-col items-center justify-center transition-all duration-300">
+                      <div
+                        className={`relative mx-auto transition-all duration-300 ${
+                          isActive ? "scale-[1.2]" : "scale-[0.8]"
+                        }`}
+                      >
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          height={276}
+                          width={276}
+                          className="object-contain max-w-full"
+                        />
+                      </div>
+                    </div>
+                  )}
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
       </div>
