@@ -8,7 +8,6 @@ import FAQs from "./components/FAQs";
 import Blogs from "./components/Blogs";
 import HowItWorks from "./components/HowItWorks";
 import Assistant from "./components/Assistant";
-import Download from "./components/Download";
 
 export default function HomeClient() {
   return (

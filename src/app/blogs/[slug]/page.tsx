@@ -12,7 +12,6 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { data } from "../../data"; // adjust path to your data file
 import React from "react";
-import Image from "next/image";
 import DummyBlog from "@/app/components/DummyBlog";
 import ProgressiveImage from "@/app/components/ProgressiveImage";
 

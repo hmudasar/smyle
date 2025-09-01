@@ -2,7 +2,6 @@
 import React from "react";
 import { data } from "../data";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 
 interface Features {

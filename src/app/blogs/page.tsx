@@ -247,15 +247,25 @@ const Blogs = () => {
                     <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 xl:gap-10 pt-6">
                       <button
                         onClick={handleFilterNow}
-                        className="bg-[#171717] border border-[#171717] text-white py-4 px-6 rounded-[50px] text-base font-medium"
+                        className="inline-flex justify-center bg-[#171717] border border-[#171717] text-white py-4 px-6 rounded-[50px] text-base font-medium overflow-hidden relative group transition-all duration-600 ease"
                       >
-                        Filter Now
+                        <div className="translate-y-0 transition group-hover:-translate-y-[150%]">
+                          Filter Now
+                        </div>
+                        <div className="absolute translate-y-[150%] transition group-hover:translate-y-0">
+                          Filter Now
+                        </div>
                       </button>
                       <button
                         onClick={handleClearAll}
-                        className="bg-transparent border border-[#171717] text-[#171717] py-4 px-6 rounded-[50px] text-base font-medium"
+                        className="inline-flex justify-center bg-transparent border border-[#171717] text-[#171717] py-4 px-6 rounded-[50px] text-base font-medium overflow-hidden relative group transition-all duration-600 ease"
                       >
-                        Clear All
+                        <div className="translate-y-0 transition group-hover:-translate-y-[150%]">
+                          Clear All
+                        </div>
+                        <div className="absolute translate-y-[150%] transition group-hover:translate-y-0">
+                          Clear All
+                        </div>
                       </button>
                     </div>
                   </div>

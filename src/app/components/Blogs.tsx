@@ -75,6 +75,9 @@ const Blogs = () => {
     };
     fetchBlogs();
   }, []);
+  if (loading) {
+    return <p>Loading ...</p>;
+  }
   return (
     <section
       id="blog"

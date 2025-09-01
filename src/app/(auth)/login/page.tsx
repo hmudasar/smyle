@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { useAuth } from "@/app/providers";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { SmyleIcon } from "@/app/SVG";
 
@@ -85,8 +84,13 @@ export default function LoginPage() {
           </div>
           {error && <p className="text-red-500 text-sm">{error}</p>}
           <div className="text-center mt-20">
-            <button className="min-w-[180px] bg-[#171717] border border-[#171717] text-white py-4 px-6 rounded-[50px] text-base font-medium">
-              Login
+            <button className="inline-flex justify-center bg-[#171717] border border-[#171717] text-white py-4 px-6 rounded-[50px] text-base font-medium overflow-hidden relative group transition-all duration-600 ease">
+              <div className="translate-y-0 transition group-hover:-translate-y-[150%]">
+                Login
+              </div>
+              <div className="absolute translate-y-[150%] transition group-hover:translate-y-0">
+                Login
+              </div>
             </button>
           </div>
         </form>

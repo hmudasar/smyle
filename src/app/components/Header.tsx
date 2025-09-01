@@ -1,11 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import Button from "./Button";
 import { usePathname } from "next/navigation";
-import { Facebook, Instagram, LinkedIn, SmyleIcon, Twitter } from "../SVG";
+import { SmyleIcon } from "../SVG";
 
 const headerMenu = [
   { name: "Home", path: "/" },
@@ -13,12 +11,6 @@ const headerMenu = [
   { name: "Smylo", path: "/smylo" },
   { name: "Blogs", path: "/blogs" },
   { name: "Contact", path: "/contact-us" },
-];
-const socialLinks = [
-  { title: "Facebook", icon: <Facebook />, path: "" },
-  { title: "Twitter ", icon: <Twitter />, path: "" },
-  { title: "Instagram", icon: <Instagram />, path: "" },
-  { title: "LinkedIn", icon: <LinkedIn />, path: "" },
 ];
 
 const Header = () => {

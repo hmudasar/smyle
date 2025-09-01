@@ -106,11 +106,21 @@ const ContactUs = async () => {
                   </div>
 
                   <div className="grid grid-cols-2 gap-3 md:gap-6 xl:gap-10 pt-6">
-                    <button className="bg-[#171717] border border-[#171717] text-white py-4 px-6 rounded-[50px] text-base font-medium">
-                      Send Message
+                    <button className="inline-flex justify-center bg-[#171717] border border-[#171717] text-white py-4 px-6 rounded-[50px] text-base font-medium overflow-hidden relative group transition-all duration-600 ease">
+                      <div className="translate-y-0 transition group-hover:-translate-y-[150%]">
+                        Send Message
+                      </div>
+                      <div className="absolute translate-y-[150%] transition group-hover:translate-y-0">
+                        Send Message
+                      </div>
                     </button>
-                    <button className="bg-transparent border border-[#171717] text-[#171717] py-4 px-6 rounded-[50px] text-base font-medium">
-                      Clear All
+                    <button className="inline-flex justify-center bg-transparent border border-[#171717] text-[#171717] py-4 px-6 rounded-[50px] text-base font-medium overflow-hidden relative group transition-all duration-600 ease">
+                      <div className="translate-y-0 transition group-hover:-translate-y-[150%]">
+                        Clear All
+                      </div>
+                      <div className="absolute translate-y-[150%] transition group-hover:translate-y-0">
+                        Clear All
+                      </div>
                     </button>
                   </div>
                 </form>

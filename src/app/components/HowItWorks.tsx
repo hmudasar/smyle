@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCards, Autoplay } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 
 // Import Swiper styles
 import "swiper/css";
@@ -23,12 +23,14 @@ const HowItWorks = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24">
           <div className="lg:text-left text-center">
             <h1 className="font-figtree text-primary text-[32px] lg:text-[36px] xl:text-[40px] 2xl:text-[44px] font-semibold leading-normal tracking-[0.94px] lg:tracking-[1.44px] mb-3 xl:mb-5">
-              Love Isn't About Big Moments, It's About the Small Ones You Miss
+              Love Isn&apos;t About Big Moments, It&apos;s About the Small Ones
+              You Miss
             </h1>
             <p className="text-[#747474] text-[16px] leading-normal font-[400] mb-8">
-              You swore you'd remember their coffee order. But life gets busy,
-              and 'I'll do it later' becomes 'Why don't you ever listen?'! SMILE
-              turns those missed moments into shared joy.
+              You swore you&apos;d remember their coffee order. But life gets
+              busy, and &apos;I&apos;ll do it later&apos; becomes &apos;Why
+              don&apos;t you ever listen?&apos;! SMILE turns those missed
+              moments into shared joy.
             </p>
           </div>
 

@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import axios from "axios";
-import { apiURL, authToken } from "./utils/constent";
+import { apiURL } from "./utils/constent";
 
 const BASE_URL =
   process.env.NODE_ENV === "production"
