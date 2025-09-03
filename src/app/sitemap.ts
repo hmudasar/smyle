@@ -25,6 +25,12 @@ interface Blog {
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
+    // Only fetch blog posts if API URL is configured
+    if (!apiURL) {
+      console.warn("API URL not configured, returning static pages only");
+      return STATIC_PAGES;
+    }
+
     // Fetch blog posts from API with related articles
     const response = await axios.get<{ data: Blog[] }>(
       `${apiURL}/articles?populate=related_articles`
