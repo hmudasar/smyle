@@ -1,9 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import { forwardRef } from "react";
 import { AppleIcon, PlayStoreIcon, QRCodeIcon } from "../SVG";
 
-const Banner = () => {
+interface BannerProps {
+  phoneRef?: React.RefObject<HTMLDivElement | null>;
+}
+
+const Banner = forwardRef<HTMLDivElement, BannerProps>(({ phoneRef }) => {
   return (
     <div className="banner bg-gradient pb-6 lg:pb-26 pt-36 relative">
       <div className="mx-auto px-4 md:px-12 relative">
@@ -18,13 +23,16 @@ const Banner = () => {
               insights from Smylo — your relationship AI companion.
             </p>
           </div>
-          <div className="lg:-ms-24 max-w-full xl:-me-12 relative h-[620px]">
+          <div 
+            ref={phoneRef} 
+            className="lg:-ms-24 max-w-full xl:-me-12 relative h-[620px]"
+          >
             <Image
               src={"/images/new/banner-mobile.png"}
               alt="Banner"
               width={569}
               height={604}
-              className="h-full w-full object-cover object-center"
+              className="h-full w-full object-cover object-center lg:opacity-0 transition-opacity duration-300"
             />
             <div className="w-full sm:w-[410px] bottom-36 flex justify-between absolute left-1/2 -translate-x-1/2 xl:hidden s2m:gap-8 sm:gap-12 bg-white border border-[#8B8B8B] p-4 rounded-[100px]">
               <div className="flex gap-4 items-center">
@@ -96,6 +104,8 @@ const Banner = () => {
       </div>
     </div>
   );
-};
+});
+
+Banner.displayName = "Banner";
 
 export default Banner;

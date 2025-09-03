@@ -1,8 +1,14 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { forwardRef } from "react";
+import { motion, MotionValue } from "framer-motion";
 
-const AboutUs = () => {
+interface AboutUsProps {
+  phoneRef?: React.RefObject<HTMLDivElement | null>;
+  scrollProgress?: MotionValue<number>;
+}
+
+const AboutUs = forwardRef<HTMLDivElement, AboutUsProps>(({ phoneRef, scrollProgress }) => {
   return (
     <React.Fragment>
       <section id="about-us" className="py-16 lg:py-20 xl:py-28 2xl:py-36">
@@ -15,8 +21,12 @@ const AboutUs = () => {
                 </div>
               </div>
             </div>
-            <div className="relative mx-auto px-10 xl:px-0 max-w-[430px]">
-              <div className="absolute -left-1 lg:-left-32 xl:-left-56 top-36 lg:top-24 bg-white rounded-[11px] p-2 lg:p-3 flex items-center gap-3 rotate-[-32.487deg] lg:rotate-[21.184deg]">
+            <div ref={phoneRef} className="relative mx-auto px-10 xl:px-0 max-w-[430px]">
+              <motion.div 
+                className="absolute -left-1 lg:-left-32 xl:-left-56 top-36 lg:top-24 bg-white rounded-[11px] p-2 lg:p-3 flex items-center gap-3 rotate-[-32.487deg] lg:rotate-[21.184deg]"
+                animate={scrollProgress ? { y: -3 } : {}}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
                 <Image
                   src="/images/new/task-1.png"
                   alt="icon-1"
@@ -31,8 +41,12 @@ const AboutUs = () => {
                     Bring flowers in office
                   </span>
                 </div>
-              </div>
-              <div className="absolute left-1 lg:-left-32 xl:-left-64 bottom-16 lg:bottom-24 bg-white rounded-[11px] p-2 lg:p-3 flex items-center gap-3 rotate-[11.184deg]">
+              </motion.div>
+              <motion.div 
+                className="absolute left-1 lg:-left-32 xl:-left-64 bottom-16 lg:bottom-24 bg-white rounded-[11px] p-2 lg:p-3 flex items-center gap-3 rotate-[11.184deg]"
+                animate={scrollProgress ? { y: -2 } : {}}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
                 <Image
                   src="/images/new/task-1.png"
                   alt="icon-1"
@@ -47,15 +61,19 @@ const AboutUs = () => {
                     Bring flowers in office
                   </span>
                 </div>
-              </div>
+              </motion.div>
               <Image
                 src="/images/new/about-mobile.png"
                 alt="about-mobile"
                 width={363}
                 height={739}
-                className="max-w-full"
+                className="max-w-full lg:opacity-0 transition-opacity duration-300"
               />
-              <div className="absolute right-2 lg:-right-24 xl:-right-60 -top-6 lg:top-40 bg-white rounded-[11px] p-2 lg:p-3 flex items-center gap-3 rotate-[16.166deg] lg:-rotate-[32.487deg]">
+              <motion.div 
+                className="absolute right-2 lg:-right-24 xl:-right-60 -top-6 lg:top-40 bg-white rounded-[11px] p-2 lg:p-3 flex items-center gap-3 rotate-[16.166deg] lg:-rotate-[32.487deg]"
+                animate={scrollProgress ? { y: -4 } : {}}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
                 <Image
                   src="/images/new/task-1.png"
                   alt="icon-1"
@@ -70,8 +88,12 @@ const AboutUs = () => {
                     Bring flowers in office
                   </span>
                 </div>
-              </div>
-              <div className="absolute right-1 lg:-right-32 xl:-right-64 bottom-48 lg:bottom-32 bg-white rounded-[11px] p-2 lg:p-3 flex items-center gap-3 rotate-[30.96deg] lg:-rotate-[5.362deg]">
+              </motion.div>
+              <motion.div 
+                className="absolute right-1 lg:-right-32 xl:-right-64 bottom-48 lg:bottom-32 bg-white rounded-[11px] p-2 lg:p-3 flex items-center gap-3 rotate-[30.96deg] lg:-rotate-[5.362deg]"
+                animate={scrollProgress ? { y: -3 } : {}}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
                 <Image
                   src="/images/new/task-1.png"
                   alt="icon-1"
@@ -86,13 +108,15 @@ const AboutUs = () => {
                     Bring flowers in office
                   </span>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
       </section>
     </React.Fragment>
   );
-};
+});
+
+AboutUs.displayName = "AboutUs";
 
 export default AboutUs;
