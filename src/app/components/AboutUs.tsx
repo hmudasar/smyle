@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
-import React, { forwardRef } from "react";
-import { motion, MotionValue } from "framer-motion";
+import React, { forwardRef, useRef } from "react";
+import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 
 interface AboutUsProps {
   phoneRef?: React.RefObject<HTMLDivElement | null>;
@@ -9,19 +9,48 @@ interface AboutUsProps {
 }
 
 const AboutUs = forwardRef<HTMLDivElement, AboutUsProps>(({ phoneRef, scrollProgress }) => {
+  const aboutUsRef = useRef<HTMLDivElement>(null);
+  
+  // Extended scroll tracking for the AboutUs section
+  // This creates a longer scroll range to allow for sticky behavior + animation
+  const { scrollYProgress: aboutScrollProgress } = useScroll({
+    target: aboutUsRef,
+    offset: ["start start", "end end"]
+  });
+
+  // Circle animations - trigger during the first part of the scroll through section
+  const circle1Scale = useTransform(aboutScrollProgress, [0.1, 0.25], [0, 1]);
+  const circle2Scale = useTransform(aboutScrollProgress, [0.15, 0.3], [0, 1]);
+  const circle3Scale = useTransform(aboutScrollProgress, [0.2, 0.35], [0, 1]);
+  const circle4Scale = useTransform(aboutScrollProgress, [0.25, 0.4], [0, 1]);
+
   return (
     <React.Fragment>
-      <section id="about-us" className="py-16 lg:py-20 xl:py-28 2xl:py-36">
-        <div className="mx-auto px-4 md:px-12 relative">
-          <div className="mx-auto relative h-[750px] flex justify-center items-center">
-            <div className="h-[280px] w-[280px] xsm:h-[406px] xsm:w-[406px] lg:w-[726px] lg:h-[726px] lg:w-[726px] lg:h-[726px] p-5 lg:p-10 bg-theme/10 rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-              <div className="p-5 lg:p-10 h-full w-full bg-theme bg-opacity-[16%] rounded-full m-auto flex items-center justify-center">
-                <div className="p-5 lg:p-10 h-full w-full bg-theme bg-opacity-[16%] rounded-full m-auto flex items-center justify-center">
-                  <div className="p-5 lg:p-10 h-full w-full bg-theme bg-opacity-[16%] rounded-full m-auto flex items-center justify-center"></div>
-                </div>
-              </div>
-            </div>
-            <div ref={phoneRef} className="relative mx-auto px-10 xl:px-0 max-w-[430px]">
+      <section id="about-us" ref={aboutUsRef} className="relative" style={{ height: '300vh' }}>
+        <div className="sticky top-0 h-screen flex items-center justify-center">
+          <div className="relative">
+            <motion.div 
+              className="h-[280px] w-[280px] xsm:h-[406px] xsm:w-[406px] lg:w-[726px] lg:h-[726px] p-5 lg:p-10 bg-theme/10 rounded-full flex items-center justify-center"
+              style={{ scale: circle1Scale }}
+            >
+              <motion.div 
+                className="p-5 lg:p-10 h-full w-full bg-theme bg-opacity-[16%] rounded-full m-auto flex items-center justify-center"
+                style={{ scale: circle2Scale }}
+              >
+                <motion.div 
+                  className="p-5 lg:p-10 h-full w-full bg-theme bg-opacity-[16%] rounded-full m-auto flex items-center justify-center"
+                  style={{ scale: circle3Scale }}
+                >
+                  <motion.div 
+                    className="p-5 lg:p-10 h-full w-full bg-theme bg-opacity-[16%] rounded-full m-auto flex items-center justify-center"
+                    style={{ scale: circle4Scale }}
+                  ></motion.div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
+            
+            {/* Phone content positioned absolutely within the circle container */}
+            <div ref={phoneRef} className="absolute inset-0 flex items-center justify-center px-10 xl:px-0 max-w-[430px] mx-auto left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               <motion.div 
                 className="absolute -left-1 lg:-left-32 xl:-left-56 top-36 lg:top-24 bg-white rounded-[11px] p-2 lg:p-3 flex items-center gap-3 rotate-[-32.487deg] lg:rotate-[21.184deg]"
                 animate={scrollProgress ? { y: -3 } : {}}

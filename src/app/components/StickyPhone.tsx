@@ -85,7 +85,6 @@ const StickyPhone = ({
     if (aboutRef.current) resizeObserver.observe(aboutRef.current);
 
     window.addEventListener("resize", checkScreenSize);
-    window.addEventListener("scroll", debouncedUpdate);
     
     if (document.fonts) {
       document.fonts.addEventListener("loadingdone", debouncedUpdate);
@@ -95,7 +94,6 @@ const StickyPhone = ({
       clearTimeout(timeoutId);
       resizeObserver.disconnect();
       window.removeEventListener("resize", checkScreenSize);
-      window.removeEventListener("scroll", debouncedUpdate);
       if (document.fonts) {
         document.fonts.removeEventListener("loadingdone", debouncedUpdate);
       }
@@ -108,26 +106,29 @@ const StickyPhone = ({
   // Calculate scroll ranges based on measurements
   const scrollRanges = useMemo(() => {
     if (!measurements.banner || !measurements.about || typeof window === "undefined") {
-      return { startY: 0, endY: 0, startScale: 1, endScale: 1 };
+      return { startY: 0, pinY: 0, endY: 0, startScale: 1, endScale: 1 };
     }
 
     const { banner, about, headerHeight } = measurements;
     const viewportCenter = (window.innerHeight - headerHeight) / 2;
     
     const startScrollY = banner.cy - viewportCenter;
-    const endScrollY = about.cy - viewportCenter;
+    const pinScrollY = about.cy - viewportCenter; // When phone reaches and pins at AboutUs
+    // Account for AboutUs section's 300vh height - phone moves up near end of section
+    const aboutSectionHeight = window.innerHeight * 3;
+    const endScrollY = about.cy - viewportCenter + (aboutSectionHeight - window.innerHeight);
 
     // Uniform scale based on height
     const startScale = banner.h / MOCKUP_NATURAL_HEIGHT;
     const endScale = about.h / MOCKUP_NATURAL_HEIGHT;
 
-    return { startY: startScrollY, endY: endScrollY, startScale, endScale };
+    return { startY: startScrollY, pinY: pinScrollY, endY: endScrollY, startScale, endScale };
   }, [measurements]);
 
   // Create transforms using calculated ranges
   const progress = useTransform(
     scrollY,
-    [scrollRanges.startY, scrollRanges.endY],
+    [scrollRanges.startY, scrollRanges.pinY],
     [0, 1],
     { clamp: true }
   );
@@ -138,38 +139,30 @@ const StickyPhone = ({
     const { banner, about, headerHeight } = measurements;
     const viewportCenter = (window.innerHeight - headerHeight) / 2;
     
-    // When scroll is before start, show at banner position
+    // Phase 1: Before animation starts - show at banner position
     if (latestScrollY <= scrollRanges.startY) {
       return banner.cy - (latestScrollY + viewportCenter);
     }
-    // When scroll is after end, pin at about position
-    else if (latestScrollY >= scrollRanges.endY) {
-      return about.cy - (latestScrollY + viewportCenter);
-    }
-    // During transition, interpolate
-    else {
-      const t = (latestScrollY - scrollRanges.startY) / (scrollRanges.endY - scrollRanges.startY);
+    // Phase 2: Moving from Banner to AboutUs
+    else if (latestScrollY > scrollRanges.startY && latestScrollY <= scrollRanges.pinY) {
+      const t = (latestScrollY - scrollRanges.startY) / (scrollRanges.pinY - scrollRanges.startY);
       const currentCy = banner.cy + t * (about.cy - banner.cy);
       return currentCy - (latestScrollY + viewportCenter);
     }
+    // Phase 3: Pinned in AboutUs - stay fixed at center
+    else if (latestScrollY > scrollRanges.pinY && latestScrollY <= scrollRanges.endY) {
+      return 0; // Stay fixed at center
+    }
+    // Phase 4: Moving up with AboutUs section
+    else {
+      const scrollPastEnd = latestScrollY - scrollRanges.endY;
+      return -scrollPastEnd; // Move phone upward with scroll
+    }
   });
 
-  const scale = useTransform(scrollY, (latestScrollY) => {
-    if (!measurements.banner || !measurements.about) return 1;
-    
-    // When scroll is before start, use banner scale
-    if (latestScrollY <= scrollRanges.startY) {
-      return scrollRanges.startScale;
-    }
-    // When scroll is after end, pin at about scale
-    else if (latestScrollY >= scrollRanges.endY) {
-      return scrollRanges.endScale;
-    }
-    // During transition, interpolate
-    else {
-      const t = (latestScrollY - scrollRanges.startY) / (scrollRanges.endY - scrollRanges.startY);
-      return scrollRanges.startScale + t * (scrollRanges.endScale - scrollRanges.startScale);
-    }
+  // Keep phone size constant throughout animation  
+  const scale = useTransform(scrollY, () => {
+    return scrollRanges.startScale; // Always use banner scale (original size)
   });
 
   // Creative polish effects
