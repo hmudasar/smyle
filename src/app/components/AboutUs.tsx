@@ -1,14 +1,13 @@
 "use client";
 import Image from "next/image";
 import React, { forwardRef, useRef, useState, useEffect } from "react";
-import { motion, MotionValue, useScroll, useTransform, useMotionValue, animate } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, animate } from "framer-motion";
 
 interface AboutUsProps {
   phoneRef?: React.RefObject<HTMLDivElement | null>;
-  scrollProgress?: MotionValue<number>;
 }
 
-const AboutUs = forwardRef<HTMLDivElement, AboutUsProps>(({ phoneRef, scrollProgress }) => {
+const AboutUs = forwardRef<HTMLDivElement, AboutUsProps>(({ phoneRef }) => {
   const aboutUsRef = useRef<HTMLDivElement>(null);
   
   // Extended scroll tracking for the AboutUs section
@@ -71,6 +70,31 @@ const AboutUs = forwardRef<HTMLDivElement, AboutUsProps>(({ phoneRef, scrollProg
     (values: number[]) => values[0] * values[1]
   );
 
+  // Card animations - emerge from phone center after circles appear
+  // Trigger at progress 0.7-0.9 (after circles are fully visible)
+  const cardOpacity = useTransform(aboutScrollProgress, [0.7, 0.85], [0, 1]);
+  const cardScale = useTransform(aboutScrollProgress, [0.7, 0.85], [0, 1]);
+
+  // Card 1 (Top-Left) - emerge with rotation
+  const card1X = useTransform(aboutScrollProgress, [0.7, 0.9], [0, -286]);
+  const card1Y = useTransform(aboutScrollProgress, [0.7, 0.9], [0, -80]);
+  const card1Rotate = useTransform(aboutScrollProgress, [0.7, 0.9], [0, 15]);
+
+  // Card 2 (Bottom-Left) - emerge with rotation
+  const card2X = useTransform(aboutScrollProgress, [0.7, 0.9], [0, -286]);
+  const card2Y = useTransform(aboutScrollProgress, [0.7, 0.9], [0, 100]);
+  const card2Rotate = useTransform(aboutScrollProgress, [0.7, 0.9], [0, 15]);
+
+  // Card 3 (Top-Right) - emerge with rotation
+  const card3X = useTransform(aboutScrollProgress, [0.7, 0.9], [0, 286]);
+  const card3Y = useTransform(aboutScrollProgress, [0.7, 0.9], [0, -80]);
+  const card3Rotate = useTransform(aboutScrollProgress, [0.7, 0.9], [0, -15]);
+
+  // Card 4 (Bottom-Right) - emerge with rotation
+  const card4X = useTransform(aboutScrollProgress, [0.7, 0.9], [0, 286]);
+  const card4Y = useTransform(aboutScrollProgress, [0.7, 0.9], [0, 100]);
+  const card4Rotate = useTransform(aboutScrollProgress, [0.7, 0.9], [0, -15]);
+
   return (
     <React.Fragment>
       <section id="about-us" ref={aboutUsRef} className="relative" style={{ height: '300vh' }}>
@@ -99,9 +123,19 @@ const AboutUs = forwardRef<HTMLDivElement, AboutUsProps>(({ phoneRef, scrollProg
             {/* Phone content positioned absolutely within the circle container */}
             <div ref={phoneRef} className="absolute inset-0 flex items-center justify-center px-10 xl:px-0 max-w-[430px] mx-auto left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               <motion.div 
-                className="absolute -left-1 lg:-left-32 xl:-left-56 top-36 lg:top-24 bg-white rounded-[11px] p-2 lg:p-3 flex items-center gap-3 rotate-[-32.487deg] lg:rotate-[21.184deg]"
-                animate={scrollProgress ? { y: -3 } : {}}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="absolute bg-white rounded-[11px] p-2 lg:p-3 flex items-center gap-3"
+                style={{
+                  left: '50%',
+                  top: '50%',
+                  transformOrigin: 'center',
+                  x: card1X,
+                  y: card1Y,
+                  rotate: card1Rotate,
+                  scale: cardScale,
+                  opacity: cardOpacity,
+                  translateX: '-50%',
+                  translateY: '-50%'
+                }}
               >
                 <Image
                   src="/images/new/task-1.png"
@@ -119,9 +153,19 @@ const AboutUs = forwardRef<HTMLDivElement, AboutUsProps>(({ phoneRef, scrollProg
                 </div>
               </motion.div>
               <motion.div 
-                className="absolute left-1 lg:-left-32 xl:-left-64 bottom-16 lg:bottom-24 bg-white rounded-[11px] p-2 lg:p-3 flex items-center gap-3 rotate-[11.184deg]"
-                animate={scrollProgress ? { y: -2 } : {}}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="absolute bg-white rounded-[11px] p-2 lg:p-3 flex items-center gap-3"
+                style={{
+                  left: '50%',
+                  top: '50%',
+                  transformOrigin: 'center',
+                  x: card2X,
+                  y: card2Y,
+                  rotate: card2Rotate,
+                  scale: cardScale,
+                  opacity: cardOpacity,
+                  translateX: '-50%',
+                  translateY: '-50%'
+                }}
               >
                 <Image
                   src="/images/new/task-1.png"
@@ -146,9 +190,19 @@ const AboutUs = forwardRef<HTMLDivElement, AboutUsProps>(({ phoneRef, scrollProg
                 className="max-w-full lg:opacity-0 transition-opacity duration-300"
               />
               <motion.div 
-                className="absolute right-2 lg:-right-24 xl:-right-60 -top-6 lg:top-40 bg-white rounded-[11px] p-2 lg:p-3 flex items-center gap-3 rotate-[16.166deg] lg:-rotate-[32.487deg]"
-                animate={scrollProgress ? { y: -4 } : {}}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="absolute bg-white rounded-[11px] p-2 lg:p-3 flex items-center gap-3"
+                style={{
+                  left: '50%',
+                  top: '50%',
+                  transformOrigin: 'center',
+                  x: card3X,
+                  y: card3Y,
+                  rotate: card3Rotate,
+                  scale: cardScale,
+                  opacity: cardOpacity,
+                  translateX: '-50%',
+                  translateY: '-50%'
+                }}
               >
                 <Image
                   src="/images/new/task-1.png"
@@ -166,9 +220,19 @@ const AboutUs = forwardRef<HTMLDivElement, AboutUsProps>(({ phoneRef, scrollProg
                 </div>
               </motion.div>
               <motion.div 
-                className="absolute right-1 lg:-right-32 xl:-right-64 bottom-48 lg:bottom-32 bg-white rounded-[11px] p-2 lg:p-3 flex items-center gap-3 rotate-[30.96deg] lg:-rotate-[5.362deg]"
-                animate={scrollProgress ? { y: -3 } : {}}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="absolute bg-white rounded-[11px] p-2 lg:p-3 flex items-center gap-3"
+                style={{
+                  left: '50%',
+                  top: '50%',
+                  transformOrigin: 'center',
+                  x: card4X,
+                  y: card4Y,
+                  rotate: card4Rotate,
+                  scale: cardScale,
+                  opacity: cardOpacity,
+                  translateX: '-50%',
+                  translateY: '-50%'
+                }}
               >
                 <Image
                   src="/images/new/task-1.png"
