@@ -71,9 +71,9 @@ const AboutUs = forwardRef<HTMLDivElement, AboutUsProps>(({ phoneRef }) => {
   );
 
   // Card animations - emerge from phone center after circles appear
-  // Trigger at progress 0.7-0.9 (after circles are fully visible)
-  const cardOpacity = useTransform(aboutScrollProgress, [0.7, 0.85], [0, 1]);
-  const cardScale = useTransform(aboutScrollProgress, [0.7, 0.85], [0, 1]);
+  // Trigger at progress 0.5-0.65 (reduced gap after circles)
+  const cardOpacity = useTransform(aboutScrollProgress, [0.5, 0.65], [0, 1]);
+  const cardScale = useTransform(aboutScrollProgress, [0.5, 0.65], [0, 1]);
 
   // Card 1 (Top-Left) - emerge with rotation
   const card1X = useTransform(aboutScrollProgress, [0.7, 0.9], [0, -286]);
