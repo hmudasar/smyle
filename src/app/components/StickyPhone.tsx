@@ -160,10 +160,15 @@ const StickyPhone = ({
     }
   });
 
-  // Keep phone size constant throughout animation  
-  const scale = useTransform(scrollY, () => {
-    return scrollRanges.startScale; // Always use banner scale (original size)
-  });
+  // Scale phone up when moving from Banner to AboutUs
+  const scale = useTransform(
+    progress,
+    [0, 1],
+    [
+      scrollRanges.startScale,
+      scrollRanges.startScale * 1.2 // 20% larger in AboutUs
+    ]
+  );
 
   // Creative polish effects
   const glowOpacity = useTransform(
