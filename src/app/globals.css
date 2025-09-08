@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,7 +9,30 @@
   font-weight: 500;
   font-style: normal;
 }
-
+@font-face {
+  font-family: "Figtree";
+  src: url("/fonts/figtree/Figtree-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/fonts/figtree/Figtree-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/fonts/figtree/Figtree-Bold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/fonts/figtree/Figtree-Black.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
 :root {
   --background: #fffcf0;
   --foreground: #000;
@@ -304,6 +327,11 @@ hr {
 .testimonial-slide:nth-child(6) {
   top: 20%;
   left: 35%;
+}
+@media (width >= 1280px) {
+  .banner-img {
+    transform: translateX(-50%);
+  }
 }
 @media (width >= 1024px) {
   p {

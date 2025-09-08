@@ -25,7 +25,7 @@ export default {
       },
       fontFamily: {
         spring: ["var(--fontspring)"],
-        figtree: ["Figtree", "sans-serif"],
+        figtree: ["var(--fontFigtree)"],
       },
       boxShadow: {
         custom: "0px 1px 2px 0px rgba(16, 24, 40, 0.05)",

@@ -123,7 +123,7 @@ const Testimonials = () => {
               {testimonialData.map((data, i) => (
                 <SwiperSlide key={i}>
                   <div className="lg:text-left text-center">
-                    <h2 className="font-figtree text-3xl lg:text-4xl xl:text-5xl font-bold leading-normal text-[#0D0D0D] tracking-[1.44px] mb-7">
+                    <h2 className="font-figtree text-3xl lg:text-4xl xl:text-5xl font-semibold leading-normal text-[#0D0D0D] tracking-[1.44px] mb-7">
                       What healthy relationships say about SMYL
                     </h2>
                     <p className="text-base font-[400] text-[#0D0D0D] mb-4 leading-normal tracking-[0.48px]">

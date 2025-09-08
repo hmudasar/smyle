@@ -6,7 +6,7 @@ const Nudges = () => {
     <div className="py-8 sm:py-20 md:py-28 lg:py-40 xl:py-52 2xl:py-64">
       <div className="mx-auto px-4 md:px-12 relative">
         <div className="text-center mb-36">
-          <h2 className="font-figtree text-primary text-[32px] lg:text-[40px] xl:text-[48px] font-bold leading-normal tracking-[1.44px] mb-4">
+          <h2 className="font-figtree text-primary text-[32px] lg:text-[40px] xl:text-[48px] font-semibold leading-normal tracking-[1.44px] mb-4">
             Nudges
           </h2>
           <h3 className="font-figtree text-primary text-[24px] lg:text-[28px] xl-text-[32px] font-bold leading-normal tracking-[0.96px] mb-2">

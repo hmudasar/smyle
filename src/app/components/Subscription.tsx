@@ -46,7 +46,7 @@ const MagicSubscription = () => {
     <section className="py-16 text-[#151515]">
       <div className="container mx-auto px-4 md:px-12 relative max-w-[1200px]">
         <div className="text-center mb-16">
-          <h2 className="font-figtree text-primary text-[32px] lg:text-[40px] xl:text-[48px] font-bold leading-normal tracking-[1.44px] mb-4">
+          <h2 className="font-figtree text-primary text-[32px] lg:text-[40px] xl:text-[48px] font-semibold leading-normal tracking-[1.44px] mb-4">
             Magic Subscription. Simple, fair, built for two
           </h2>
           <p className="text-[#151515] text-base lg:text-lg font-regular tracking-[0.48px] leading-normal mb-8">

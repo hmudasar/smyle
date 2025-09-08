@@ -95,7 +95,7 @@ const SmyloSteps = () => {
       <div className="max-w-[1110px] mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="font-figtree text-primary text-[32px] lg:text-[40px] xl:text-[48px] font-bold leading-normal tracking-[1.44px] mb-4">
+          <h1 className="font-figtree text-primary text-[32px] lg:text-[40px] xl:text-[48px] font-semibold leading-normal tracking-[1.44px] mb-4">
             How Smylo Brings You Closer
           </h1>
           <p className="text-[#151515] leading-normal tracking-[0.48px]">

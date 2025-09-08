@@ -26,6 +26,43 @@ export const data = {
       },
     ],
   },
+  smyloFAQs: [
+    {
+      heading: "What is Smylo?",
+      description:
+        "At Tech Flairz, you’re not just another client. You’re a partner. We measure our success by your success, and we work closely with you every step of the way. From the first meeting to long after the project’s delivered, we’re in this together.",
+    },
+    {
+      heading: "What is Smylo?",
+      description:
+        "At Tech Flairz, you’re not just another client. You’re a partner. We measure our success by your success, and we work closely with you every step of the way. From the first meeting to long after the project’s delivered, we’re in this together.",
+    },
+    {
+      heading: "Who is Smylo for?",
+      description:
+        "At Tech Flairz, you’re not just another client. You’re a partner. We measure our success by your success, and we work closely with you every step of the way. From the first meeting to long after the project’s delivered, we’re in this together.",
+    },
+    {
+      heading: "How are missions generated?",
+      description:
+        "At Tech Flairz, you’re not just another client. You’re a partner. We measure our success by your success, and we work closely with you every step of the way. From the first meeting to long after the project’s delivered, we’re in this together.",
+    },
+    {
+      heading: "Who gets nudges—and when?",
+      description:
+        "At Tech Flairz, you’re not just another client. You’re a partner. We measure our success by your success, and we work closely with you every step of the way. From the first meeting to long after the project’s delivered, we’re in this together.",
+    },
+    {
+      heading: "Does Smylo forward what I say to my partner?",
+      description:
+        "At Tech Flairz, you’re not just another client. You’re a partner. We measure our success by your success, and we work closely with you every step of the way. From the first meeting to long after the project’s delivered, we’re in this together.",
+    },
+    {
+      heading: "Can Smylo replace real conversations?",
+      description:
+        "At Tech Flairz, you’re not just another client. You’re a partner. We measure our success by your success, and we work closely with you every step of the way. From the first meeting to long after the project’s delivered, we’re in this together.",
+    },
+  ],
   featuresData: [
     {
       title: "Real-Time Mood Tracker",

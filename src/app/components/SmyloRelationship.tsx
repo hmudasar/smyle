@@ -25,7 +25,7 @@ const SmyloRelationship = () => {
             />
           </div>
           <div className="flex flex-col justify-center pt-6 lg:pt-0 text-center lg:text-left">
-            <h2 className="font-figtree text-primary text-[32px] lg:text-[40px] xl:text-[48px] font-bold leading-normal tracking-[1.44px] mb-4">
+            <h2 className="font-figtree text-primary text-[32px] lg:text-[40px] xl:text-[48px] font-semibold leading-normal tracking-[1.44px] mb-4">
               Your Gentle AI Relationship Co-pilot
             </h2>
             <p className="text-[#151515] text-base lg:text-lg font-regular tracking-[0.48px] leading-normal mb-8">

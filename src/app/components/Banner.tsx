@@ -14,7 +14,7 @@ const Banner = forwardRef<HTMLDivElement, BannerProps>(({ phoneRef }) => {
       <div className="mx-auto px-4 md:px-12 relative">
         <div className="flex flex-wrap lg:flex-nowrap justify-between items-center">
           <div className="text-center lg:text-left w-full lg:w-1/2 xl:w-[440px] flex-none">
-            <h1 className="text-primary text-[40px] font-semibold lg:text-[48px] xl:text-[56px] 2xl:text-[62px] leading-normal tracking-[0.62px] mb-3">
+            <h1 className="font-figtree text-primary text-[40px] font-semibold lg:text-[48px] xl:text-[56px] 2xl:text-[62px] leading-normal tracking-[0.62px] mb-3">
               Smart Support for Real Relationships
             </h1>
             <p className="text-primary text-[14px] lg:text-[16px] font-[400] leading-normal tracking-[0.48px] font-normal">

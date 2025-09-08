@@ -34,7 +34,7 @@ const SmyloFAQs = () => {
         <div className="grid lg:grid-cols-2 gap-24">
           <div className="flex flex-col justify-between">
             <div>
-              <h2 className="font-figtree text-primary text-[32px] lg:text-[40px] xl:text-[48px] font-bold leading-normal tracking-[1.44px] mb-4">
+              <h2 className="font-figtree text-primary text-[32px] lg:text-[40px] xl:text-[48px] font-semibold leading-normal tracking-[1.44px] mb-4">
                 Got Questions? We’ve Got Answers
               </h2>
               <p className="text-[#151515] text-base lg:text-lg font-regular tracking-[0.48px] leading-normal mb-8">
