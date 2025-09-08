@@ -12,9 +12,9 @@ const Banner = forwardRef<HTMLDivElement, BannerProps>(({ phoneRef }) => {
   return (
     <div className="banner bg-gradient pb-6 lg:pb-26 pt-36 relative">
       <div className="mx-auto px-4 md:px-12 relative">
-        <div className="flex flex-wrap lg:flex-nowrap justify-between items-center">
-          <div className="text-center lg:text-left w-full lg:w-1/2 xl:w-[440px] flex-none">
-            <h1 className="text-primary text-[40px] font-semibold lg:text-[48px] xl:text-[56px] 2xl:text-[62px] leading-normal tracking-[0.62px] mb-3">
+        <div className="flex flex-wrap lg:flex-nowrap justify-between items-center xl:h-[1000px] relative">
+          <div className="text-center lg:text-left w-full lg:w-1/2 xl:w-[380px] 2xl:w-[440px] flex-none">
+            <h1 className="font-figtree text-primary text-[40px] font-bold lg:text-[46px] xl:text-[50px] 2xl:text-[62px] leading-normal tracking-[0.62px] mb-3">
               Smart Support for Real Relationships
             </h1>
             <p className="text-primary text-[14px] lg:text-[16px] font-[400] leading-normal tracking-[0.48px] font-normal">
@@ -23,16 +23,16 @@ const Banner = forwardRef<HTMLDivElement, BannerProps>(({ phoneRef }) => {
               insights from Smylo — your relationship AI companion.
             </p>
           </div>
-          <div 
-            ref={phoneRef} 
-            className="lg:-ms-24 max-w-full xl:-me-12 relative h-[620px]"
+          <div
+            ref={phoneRef}
+            className="banner-img max-w-full xl:-me-12 xl:bottom-0 xl:absolute xl:left-[50%] xl:top-0 xl:w-6/12 2xl:w-8/12 relative h-[620px] xl:h-auto"
           >
             <Image
               src={"/images/new/banner-mobile.png"}
               alt="Banner"
               width={569}
               height={604}
-              className="h-full w-full object-cover object-center lg:opacity-0 transition-opacity duration-300"
+              className="h-full w-full object-contain object-center lg:opacity-0 transition-opacity duration-300"
             />
             <div className="w-full sm:w-[410px] bottom-36 flex justify-between absolute left-1/2 -translate-x-1/2 xl:hidden s2m:gap-8 sm:gap-12 bg-white border border-[#8B8B8B] p-4 rounded-[100px]">
               <div className="flex gap-4 items-center">
@@ -58,8 +58,8 @@ const Banner = forwardRef<HTMLDivElement, BannerProps>(({ phoneRef }) => {
               </a>
             </div>
           </div>
-          <div className="flex-none w-[430px] relative xl:block hidden">
-            <div className="w-[304px]">
+          <div className="flex-none xl:w-[340px] 2xl:w-[430px] relative xl:block hidden">
+            <div className="xl:w-[304px]">
               <div className="bg-white rounded-3xl pt-[40px] pb-5 px-4 text-center inline-block mb-4">
                 <div className="px-5">
                   <QRCodeIcon />

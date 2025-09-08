@@ -85,7 +85,7 @@ const FAQs = () => {
               ))}
             </div>
             <div className="relative">
-              <h1 className="font-figtree text-primary text-[32px] lg:text-[38px] xl:text-[44px] font-semibold leading-normal tracking-[0.94px] lg:tracking-[1.44px] mb-2 lg:mb-4 xl:mb-5">
+              <h1 className="font-figtree text-primary text-[32px] lg:text-[38px] xl:text-[44px] font-bold leading-normal tracking-[0.94px] lg:tracking-[1.44px] mb-2 lg:mb-4 xl:mb-5">
                 Got Questions?
                 <br />
                 We have Answers

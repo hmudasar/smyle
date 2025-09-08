@@ -9,7 +9,7 @@ const Assistant = () => {
       <div className="mx-auto px-4 md:px-12 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 lg:gap-36 xl:gap-64 items-center">
           <div className="">
-            <h1 className="font-figtree text-primary text-[32px] lg:text-[36px] xl:text-[40px] 2xl:text-[44px] font-semibold leading-normal tracking-[0.94px] lg:tracking-[1.44px] mb-3 xl:mb-5">
+            <h1 className="font-figtree text-primary text-[32px] lg:text-[36px] xl:text-[40px] 2xl:text-[44px] font-bold leading-normal tracking-[0.94px] lg:tracking-[1.44px] mb-3 xl:mb-5">
               Your Secret Relationship Weapon
             </h1>
             <p className="text-[#747474] text-[16px] leading-normal font-[400] mb-8">
