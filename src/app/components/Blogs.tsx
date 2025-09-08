@@ -87,7 +87,7 @@ const Blogs = () => {
       <div className="mx-auto px-4 md:px-12 relative">
         <header className="lg:flex max-w-full mb-0 mx-auto items-center lg:text-left text-center">
           <div className="lg:w-1/3">
-            <h1 className="font-figtree text-primary text-[32px] lg:text-[36px] xl:text-[40px] 2xl:text-[44px] font-semibold leading-normal tracking-[0.94px] lg:tracking-[1.44px] mb-3 xl:mb-5">
+            <h1 className="font-figtree text-primary text-[32px] lg:text-[36px] xl:text-[40px] 2xl:text-[44px] font-bold leading-normal tracking-[0.94px] lg:tracking-[1.44px] mb-3 xl:mb-5">
               Amazing Research
               <br /> News and Blogs
             </h1>

@@ -61,7 +61,7 @@ const BlogDetail = () => {
             </div>
 
             <div className="text-center">
-              <h1 className="font-figtree text-[32px] sm:text-[40px] lg:text-[56px] xl:text-[62px] text-[#151515] tracking-[1.92px] lg:tracking-[0.62px] font-semibold mb-4">
+              <h1 className="font-figtree text-[32px] sm:text-[40px] lg:text-[56px] xl:text-[62px] text-[#151515] tracking-[1.92px] lg:tracking-[0.62px] font-bold mb-4">
                 {blog.title}
               </h1>
               <p className="text-[14px] lg:text-base">{blog.shortDesc}</p>

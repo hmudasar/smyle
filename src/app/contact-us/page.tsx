@@ -2,6 +2,7 @@
 import React from "react";
 import { EmailIcon, LocationIcon, PhoneIcon } from "../SVG";
 import Breadcrumb from "../components/Breadcrumb";
+import { Metadata } from "next";
 
 const contactUsData = [
   {
@@ -20,7 +21,10 @@ const contactUsData = [
     icon: <LocationIcon />,
   },
 ];
-
+export const metadata: Metadata = {
+  title: "Contact Us - Smile",
+  description: "",
+};
 const ContactUs = async () => {
   return (
     <section>

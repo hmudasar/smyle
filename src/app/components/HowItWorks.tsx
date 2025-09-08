@@ -22,7 +22,7 @@ const HowItWorks = () => {
       <div className="mx-auto px-4 md:px-12 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24">
           <div className="lg:text-left text-center">
-            <h1 className="font-figtree text-primary text-[32px] lg:text-[36px] xl:text-[40px] 2xl:text-[44px] font-semibold leading-normal tracking-[0.94px] lg:tracking-[1.44px] mb-3 xl:mb-5">
+            <h1 className="font-figtree font-bold text-primary text-[32px] lg:text-[36px] xl:text-[40px] 2xl:text-[44px] leading-normal tracking-[0.94px] lg:tracking-[1.44px] mb-3 xl:mb-5">
               Love Isn&apos;t About Big Moments, It&apos;s About the Small Ones
               You Miss
             </h1>

@@ -23,7 +23,7 @@ const Footer = () => {
           </Link>
         </div>
         <div className="text-center mb-6">
-          <h2 className="text-[40px] font-semibold text-primary">
+          <h2 className="font-figtree text-[40px] font-semibold text-primary">
             Your Everyday Relationship Coach
           </h2>
         </div>

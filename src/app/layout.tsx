@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import { Figtree } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { AuthProvider } from "./providers";
+
+const figtree = Figtree({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"], // choose the weights you need
+  variable: "--font-figtree", // optional: expose as CSS variable
+  display: "swap", // avoids FOIT (flash of invisible text)
+});
 
 const schemaData = {
   "@context": "https://schema.org",
@@ -67,7 +75,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
       </head>
-      <body className={`bg-background text-black`}>
+      <body className={`${figtree.variable} bg-background text-black`}>
         <AuthProvider>
           {/* Header with Suspense boundary */}
           <Suspense
