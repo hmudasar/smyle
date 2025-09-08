@@ -76,24 +76,24 @@ const AboutUs = forwardRef<HTMLDivElement, AboutUsProps>(({ phoneRef }) => {
   const cardScale = useTransform(aboutScrollProgress, [0.5, 0.65], [0, 1]);
 
   // Card 1 (Top-Left) - emerge with rotation
-  const card1X = useTransform(aboutScrollProgress, [0.7, 0.9], [0, -286]);
-  const card1Y = useTransform(aboutScrollProgress, [0.7, 0.9], [0, -80]);
-  const card1Rotate = useTransform(aboutScrollProgress, [0.7, 0.9], [0, 15]);
+  const card1X = useTransform(aboutScrollProgress, [0.5, 0.8], [0, -286]);
+  const card1Y = useTransform(aboutScrollProgress, [0.5, 0.8], [0, -80]);
+  const card1Rotate = useTransform(aboutScrollProgress, [0.5, 0.8], [0, 15]);
 
   // Card 2 (Bottom-Left) - emerge with rotation
-  const card2X = useTransform(aboutScrollProgress, [0.7, 0.9], [0, -286]);
-  const card2Y = useTransform(aboutScrollProgress, [0.7, 0.9], [0, 100]);
-  const card2Rotate = useTransform(aboutScrollProgress, [0.7, 0.9], [0, 15]);
+  const card2X = useTransform(aboutScrollProgress, [0.5, 0.8], [0, -286]);
+  const card2Y = useTransform(aboutScrollProgress, [0.5, 0.8], [0, 100]);
+  const card2Rotate = useTransform(aboutScrollProgress, [0.5, 0.8], [0, 15]);
 
   // Card 3 (Top-Right) - emerge with rotation
-  const card3X = useTransform(aboutScrollProgress, [0.7, 0.9], [0, 286]);
-  const card3Y = useTransform(aboutScrollProgress, [0.7, 0.9], [0, -80]);
-  const card3Rotate = useTransform(aboutScrollProgress, [0.7, 0.9], [0, -15]);
+  const card3X = useTransform(aboutScrollProgress, [0.5, 0.8], [0, 286]);
+  const card3Y = useTransform(aboutScrollProgress, [0.5, 0.8], [0, -80]);
+  const card3Rotate = useTransform(aboutScrollProgress, [0.5, 0.8], [0, -15]);
 
   // Card 4 (Bottom-Right) - emerge with rotation
-  const card4X = useTransform(aboutScrollProgress, [0.7, 0.9], [0, 286]);
-  const card4Y = useTransform(aboutScrollProgress, [0.7, 0.9], [0, 100]);
-  const card4Rotate = useTransform(aboutScrollProgress, [0.7, 0.9], [0, -15]);
+  const card4X = useTransform(aboutScrollProgress, [0.5, 0.8], [0, 286]);
+  const card4Y = useTransform(aboutScrollProgress, [0.5, 0.8], [0, 100]);
+  const card4Rotate = useTransform(aboutScrollProgress, [0.5, 0.8], [0, -15]);
 
   return (
     <React.Fragment>
