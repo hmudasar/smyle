@@ -23,8 +23,8 @@ const Banner = forwardRef<HTMLDivElement, BannerProps>(({ phoneRef }) => {
               insights from Smylo — your relationship AI companion.
             </p>
           </div>
-          <div 
-            ref={phoneRef} 
+          <div
+            ref={phoneRef}
             className="lg:-ms-24 max-w-full xl:-me-12 relative h-[620px]"
           >
             <Image

@@ -1,7 +1,13 @@
 "use client";
 import Image from "next/image";
 import React, { forwardRef, useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform, useMotionValue, animate } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useMotionValue,
+  animate,
+} from "framer-motion";
 
 interface AboutUsProps {
   phoneRef?: React.RefObject<HTMLDivElement | null>;
@@ -9,12 +15,12 @@ interface AboutUsProps {
 
 const AboutUs = forwardRef<HTMLDivElement, AboutUsProps>(({ phoneRef }) => {
   const aboutUsRef = useRef<HTMLDivElement>(null);
-  
+
   // Extended scroll tracking for the AboutUs section
   // This creates a longer scroll range to allow for sticky behavior + animation
   const { scrollYProgress: aboutScrollProgress } = useScroll({
     target: aboutUsRef,
-    offset: ["start start", "end end"]
+    offset: ["start start", "end end"],
   });
 
   // Circle animations - trigger during the first part of the scroll through section
@@ -42,9 +48,9 @@ const AboutUs = forwardRef<HTMLDivElement, AboutUsProps>(({ phoneRef }) => {
       const controls = animate(breathingScale, [1, 1.05, 1], {
         duration: 3,
         repeat: Infinity,
-        ease: "easeInOut"
+        ease: "easeInOut",
       });
-      
+
       return () => controls.stop();
     } else {
       // Reset to 1 when not breathing
@@ -97,44 +103,52 @@ const AboutUs = forwardRef<HTMLDivElement, AboutUsProps>(({ phoneRef }) => {
 
   return (
     <React.Fragment>
-      <section id="about-us" ref={aboutUsRef} className="relative" style={{ height: '300vh' }}>
+      <section
+        id="about-us"
+        ref={aboutUsRef}
+        className="relative"
+        style={{ height: "300vh" }}
+      >
         <div className="sticky top-0 h-screen flex items-center justify-center">
           <div className="relative">
-            <motion.div 
+            <motion.div
               className="h-[280px] w-[280px] xsm:h-[406px] xsm:w-[406px] lg:w-[726px] lg:h-[726px] p-5 lg:p-10 bg-theme/10 rounded-full flex items-center justify-center"
               style={{ scale: circle1CombinedScale }}
             >
-              <motion.div 
+              <motion.div
                 className="p-5 lg:p-10 h-full w-full bg-theme bg-opacity-[16%] rounded-full m-auto flex items-center justify-center"
                 style={{ scale: circle2CombinedScale }}
               >
-                <motion.div 
+                <motion.div
                   className="p-5 lg:p-10 h-full w-full bg-theme bg-opacity-[16%] rounded-full m-auto flex items-center justify-center"
                   style={{ scale: circle3CombinedScale }}
                 >
-                  <motion.div 
+                  <motion.div
                     className="p-5 lg:p-10 h-full w-full bg-theme bg-opacity-[16%] rounded-full m-auto flex items-center justify-center"
                     style={{ scale: circle4CombinedScale }}
                   ></motion.div>
                 </motion.div>
               </motion.div>
             </motion.div>
-            
+
             {/* Phone content positioned absolutely within the circle container */}
-            <div ref={phoneRef} className="absolute inset-0 flex items-center justify-center px-10 xl:px-0 max-w-[430px] mx-auto left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <motion.div 
+            <div
+              ref={phoneRef}
+              className="absolute inset-0 flex items-center justify-center px-10 xl:px-0 max-w-[430px] mx-auto left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+            >
+              <motion.div
                 className="absolute bg-white rounded-[11px] p-2 lg:p-3 flex items-center gap-3"
                 style={{
-                  left: '50%',
-                  top: '50%',
-                  transformOrigin: 'center',
+                  left: "50%",
+                  top: "50%",
+                  transformOrigin: "center",
                   x: card1X,
                   y: card1Y,
                   rotate: card1Rotate,
                   scale: cardScale,
                   opacity: cardOpacity,
-                  translateX: '-50%',
-                  translateY: '-50%'
+                  translateX: "-50%",
+                  translateY: "-50%",
                 }}
               >
                 <Image
@@ -152,19 +166,19 @@ const AboutUs = forwardRef<HTMLDivElement, AboutUsProps>(({ phoneRef }) => {
                   </span>
                 </div>
               </motion.div>
-              <motion.div 
+              <motion.div
                 className="absolute bg-white rounded-[11px] p-2 lg:p-3 flex items-center gap-3"
                 style={{
-                  left: '50%',
-                  top: '50%',
-                  transformOrigin: 'center',
+                  left: "50%",
+                  top: "50%",
+                  transformOrigin: "center",
                   x: card2X,
                   y: card2Y,
                   rotate: card2Rotate,
                   scale: cardScale,
                   opacity: cardOpacity,
-                  translateX: '-50%',
-                  translateY: '-50%'
+                  translateX: "-50%",
+                  translateY: "-50%",
                 }}
               >
                 <Image
@@ -189,19 +203,19 @@ const AboutUs = forwardRef<HTMLDivElement, AboutUsProps>(({ phoneRef }) => {
                 height={739}
                 className="max-w-full lg:opacity-0 transition-opacity duration-300"
               />
-              <motion.div 
+              <motion.div
                 className="absolute bg-white rounded-[11px] p-2 lg:p-3 flex items-center gap-3"
                 style={{
-                  left: '50%',
-                  top: '50%',
-                  transformOrigin: 'center',
+                  left: "50%",
+                  top: "50%",
+                  transformOrigin: "center",
                   x: card3X,
                   y: card3Y,
                   rotate: card3Rotate,
                   scale: cardScale,
                   opacity: cardOpacity,
-                  translateX: '-50%',
-                  translateY: '-50%'
+                  translateX: "-50%",
+                  translateY: "-50%",
                 }}
               >
                 <Image
@@ -219,19 +233,19 @@ const AboutUs = forwardRef<HTMLDivElement, AboutUsProps>(({ phoneRef }) => {
                   </span>
                 </div>
               </motion.div>
-              <motion.div 
+              <motion.div
                 className="absolute bg-white rounded-[11px] p-2 lg:p-3 flex items-center gap-3"
                 style={{
-                  left: '50%',
-                  top: '50%',
-                  transformOrigin: 'center',
+                  left: "50%",
+                  top: "50%",
+                  transformOrigin: "center",
                   x: card4X,
                   y: card4Y,
                   rotate: card4Rotate,
                   scale: cardScale,
                   opacity: cardOpacity,
-                  translateX: '-50%',
-                  translateY: '-50%'
+                  translateX: "-50%",
+                  translateY: "-50%",
                 }}
               >
                 <Image
