@@ -61,7 +61,7 @@ export default function LoginPage() {
           <div className="mb-3">
             <div className="border-b border-black relative">
               <input
-                type="text"
+                type="email"
                 placeholder="Your email"
                 className="w-full relative z-1 py-4 text-base bg-transparent focus:outline-none placeholder-black text-black"
                 onChange={(e) => setEmail(e.target.value)}
@@ -84,7 +84,7 @@ export default function LoginPage() {
           </div>
           {error && <p className="text-red-500 text-sm">{error}</p>}
           <div className="text-center mt-20">
-            <button className="inline-flex justify-center bg-[#171717] border border-[#171717] text-white py-4 px-6 rounded-[50px] text-base font-medium overflow-hidden relative group transition-all duration-600 ease">
+            <button className="w-[230px] inline-flex justify-center bg-[#171717] border border-[#171717] text-white py-4 px-6 rounded-[50px] text-base font-medium overflow-hidden relative group transition-all duration-600 ease">
               <div className="translate-y-0 transition group-hover:-translate-y-[150%]">
                 Login
               </div>

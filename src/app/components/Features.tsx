@@ -31,7 +31,7 @@ const Features = () => {
             </video>
           </div>
           <div className="text-center lg:text-left">
-            <h1 className="font-figtree text-primary text-[32px] lg:text-[36px] xl:text-[40px] 2xl:text-[44px] font-semibold leading-normal tracking-[0.94px] lg:tracking-[1.44px] mb-3 xl:mb-5">
+            <h1 className="font-figtree text-primary text-[32px] lg:text-[36px] xl:text-[40px] 2xl:text-[44px] font-bold leading-normal tracking-[0.94px] lg:tracking-[1.44px] mb-3 xl:mb-5">
               Meet Smylo
             </h1>
             <p className="text-[#747474] text-[16px] leading-normal font-[400] mb-8">

@@ -49,7 +49,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
           </li>
         </ul>
 
-        <h1 className="font-figtree text-center  text-[40px] lg:text-[48px] xl:text-[56px] 2xl:text-[62px] text-[#151515] tracking-[0.62px] font-semibold">
+        <h1 className="font-figtree text-center  text-[40px] lg:text-[48px] xl:text-[56px] 2xl:text-[62px] text-[#151515] tracking-[0.62px] font-bold">
           {heading}
         </h1>
       </div>

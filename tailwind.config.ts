@@ -22,10 +22,13 @@ export default {
       backgroundImage: {
         gradient: "var(--gradientBackground)",
         "gradient-light": "var(--gradientLight)",
+        smylo:
+          "linear-gradient(0deg, rgba(255, 252, 240, 0.30) 1.85%, rgba(255, 229, 102, 0.30) 46.02%, rgba(255, 252, 240, 0.30) 100%);",
       },
       fontFamily: {
+        jakarta: ["Plus Jakarta Sans", "sans-serif"],
+        figtree: ["var(--font-figtree)", "sans-serif"],
         spring: ["var(--fontspring)"],
-        figtree: ["Figtree", "sans-serif"],
       },
       boxShadow: {
         custom: "0px 1px 2px 0px rgba(16, 24, 40, 0.05)",
